@@ -10,6 +10,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+
+import com.mycompany.memorygame.Controler.ImageController;
+
 /**
  *
  * @author HP
@@ -22,17 +27,35 @@ public class GameFrame extends javax.swing.JFrame {
     protected String user;
     public static String tempUser = "asd";
 
-
+  
+    private ImageController imageController;
+    
+    
     /**
      * Creates new form GameFrame
      */
     public GameFrame(String user) {
         initComponents();
+        String[] dataset={
+        "src\\main\\java\\com\\mycompany\\memorygame\\Dataset\\01.png",
+        "src\\main\\java\\com\\mycompany\\memorygame\\Dataset\\02.png",
+        "src\\main\\java\\com\\mycompany\\memorygame\\Dataset\\03.png",
+        "src\\main\\java\\com\\mycompany\\memorygame\\Dataset\\04.png",
+        "src\\main\\java\\com\\mycompany\\memorygame\\Dataset\\05.png",
+        "src\\main\\java\\com\\mycompany\\memorygame\\Dataset\\06.png",
+        "src\\main\\java\\com\\mycompany\\memorygame\\Dataset\\07.png",
+        "src\\main\\java\\com\\mycompany\\memorygame\\Dataset\\08.png",
+        "src\\main\\java\\com\\mycompany\\memorygame\\Dataset\\09.png",
+        };
+        this.imageController = new ImageController(dataset);
+  
     }
 
     public void setShowTime(String text){
         this.ShowTime.setText(text);
     }
+
+
     public void setRound(int round){
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
@@ -106,21 +129,14 @@ public class GameFrame extends javax.swing.JFrame {
         ShowTime = new javax.swing.JLabel();
         MatchPanle = new javax.swing.JPanel();
         btn02 = new javax.swing.JButton();
-        btn13 = new javax.swing.JButton();
+        btn09 = new javax.swing.JButton();
         btn03 = new javax.swing.JButton();
-        btn14 = new javax.swing.JButton();
         btn04 = new javax.swing.JButton();
-        btn15 = new javax.swing.JButton();
         btn05 = new javax.swing.JButton();
-        btn16 = new javax.swing.JButton();
         btn06 = new javax.swing.JButton();
         btn07 = new javax.swing.JButton();
         btn08 = new javax.swing.JButton();
-        btn09 = new javax.swing.JButton();
-        btn11 = new javax.swing.JButton();
-        btn10 = new javax.swing.JButton();
         btn01 = new javax.swing.JButton();
-        btn12 = new javax.swing.JButton();
         ScoreP = new javax.swing.JLabel();
         leaderBoardButton = new javax.swing.JButton();
         leaderBoardButton1 = new javax.swing.JButton();
@@ -150,13 +166,13 @@ public class GameFrame extends javax.swing.JFrame {
             }
         });
 
-        btn13.setForeground(new java.awt.Color(240, 240, 240));
-        btn13.setMaximumSize(new java.awt.Dimension(64, 64));
-        btn13.setMinimumSize(new java.awt.Dimension(64, 64));
-        btn13.setPreferredSize(new java.awt.Dimension(64, 64));
-        btn13.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn09.setForeground(new java.awt.Color(240, 240, 240));
+        btn09.setMaximumSize(new java.awt.Dimension(64, 64));
+        btn09.setMinimumSize(new java.awt.Dimension(64, 64));
+        btn09.setPreferredSize(new java.awt.Dimension(64, 64));
+        btn09.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn13MouseClicked(evt);
+                btn09MouseClicked(evt);
             }
         });
 
@@ -170,16 +186,6 @@ public class GameFrame extends javax.swing.JFrame {
             }
         });
 
-        btn14.setForeground(new java.awt.Color(240, 240, 240));
-        btn14.setMaximumSize(new java.awt.Dimension(64, 64));
-        btn14.setMinimumSize(new java.awt.Dimension(64, 64));
-        btn14.setPreferredSize(new java.awt.Dimension(64, 64));
-        btn14.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn14MouseClicked(evt);
-            }
-        });
-
         btn04.setForeground(new java.awt.Color(240, 240, 240));
         btn04.setMaximumSize(new java.awt.Dimension(64, 64));
         btn04.setMinimumSize(new java.awt.Dimension(64, 64));
@@ -190,16 +196,6 @@ public class GameFrame extends javax.swing.JFrame {
             }
         });
 
-        btn15.setForeground(new java.awt.Color(240, 240, 240));
-        btn15.setMaximumSize(new java.awt.Dimension(64, 64));
-        btn15.setMinimumSize(new java.awt.Dimension(64, 64));
-        btn15.setPreferredSize(new java.awt.Dimension(64, 64));
-        btn15.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn15MouseClicked(evt);
-            }
-        });
-
         btn05.setForeground(new java.awt.Color(240, 240, 240));
         btn05.setMaximumSize(new java.awt.Dimension(64, 64));
         btn05.setMinimumSize(new java.awt.Dimension(64, 64));
@@ -207,16 +203,6 @@ public class GameFrame extends javax.swing.JFrame {
         btn05.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn05MouseClicked(evt);
-            }
-        });
-
-        btn16.setForeground(new java.awt.Color(240, 240, 240));
-        btn16.setMaximumSize(new java.awt.Dimension(64, 64));
-        btn16.setMinimumSize(new java.awt.Dimension(64, 64));
-        btn16.setPreferredSize(new java.awt.Dimension(64, 64));
-        btn16.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn16MouseClicked(evt);
             }
         });
 
@@ -250,36 +236,6 @@ public class GameFrame extends javax.swing.JFrame {
             }
         });
 
-        btn09.setForeground(new java.awt.Color(240, 240, 240));
-        btn09.setMaximumSize(new java.awt.Dimension(64, 64));
-        btn09.setMinimumSize(new java.awt.Dimension(64, 64));
-        btn09.setPreferredSize(new java.awt.Dimension(64, 64));
-        btn09.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn09MouseClicked(evt);
-            }
-        });
-
-        btn11.setForeground(new java.awt.Color(240, 240, 240));
-        btn11.setMaximumSize(new java.awt.Dimension(64, 64));
-        btn11.setMinimumSize(new java.awt.Dimension(64, 64));
-        btn11.setPreferredSize(new java.awt.Dimension(64, 64));
-        btn11.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn11MouseClicked(evt);
-            }
-        });
-
-        btn10.setForeground(new java.awt.Color(240, 240, 240));
-        btn10.setMaximumSize(new java.awt.Dimension(64, 64));
-        btn10.setMinimumSize(new java.awt.Dimension(64, 64));
-        btn10.setPreferredSize(new java.awt.Dimension(64, 64));
-        btn10.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn10MouseClicked(evt);
-            }
-        });
-
         btn01.setForeground(new java.awt.Color(240, 240, 240));
         btn01.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn01.setMaximumSize(new java.awt.Dimension(64, 64));
@@ -291,16 +247,6 @@ public class GameFrame extends javax.swing.JFrame {
             }
         });
 
-        btn12.setForeground(new java.awt.Color(240, 240, 240));
-        btn12.setMaximumSize(new java.awt.Dimension(64, 64));
-        btn12.setMinimumSize(new java.awt.Dimension(64, 64));
-        btn12.setPreferredSize(new java.awt.Dimension(64, 64));
-        btn12.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn12MouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout MatchPanleLayout = new javax.swing.GroupLayout(MatchPanle);
         MatchPanle.setLayout(MatchPanleLayout);
         MatchPanleLayout.setHorizontalGroup(
@@ -309,39 +255,27 @@ public class GameFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(MatchPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MatchPanleLayout.createSequentialGroup()
-                        .addGroup(MatchPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btn02, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn01, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(MatchPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn01, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn04, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(MatchPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn03, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn04, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(MatchPanleLayout.createSequentialGroup()
+                                .addComponent(btn02, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn03, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(MatchPanleLayout.createSequentialGroup()
+                                .addComponent(btn05, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btn06, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(MatchPanleLayout.createSequentialGroup()
-                        .addGroup(MatchPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn09, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn10, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn07, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(MatchPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn11, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn12, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addGroup(MatchPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MatchPanleLayout.createSequentialGroup()
-                        .addGroup(MatchPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn05, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn06, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn08, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(MatchPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn07, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn08, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(MatchPanleLayout.createSequentialGroup()
-                        .addGroup(MatchPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn13, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn14, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(MatchPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn16, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn15, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(btn09, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MatchPanleLayout.setVerticalGroup(
@@ -349,41 +283,21 @@ public class GameFrame extends javax.swing.JFrame {
             .addGroup(MatchPanleLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(MatchPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MatchPanleLayout.createSequentialGroup()
-                        .addComponent(btn07, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn08, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MatchPanleLayout.createSequentialGroup()
-                        .addComponent(btn05, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn06, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MatchPanleLayout.createSequentialGroup()
-                        .addComponent(btn03, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(MatchPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn02, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn03, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(btn04, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MatchPanleLayout.createSequentialGroup()
-                        .addComponent(btn01, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn02, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(MatchPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btn04, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn05, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn06, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btn01, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(MatchPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(MatchPanleLayout.createSequentialGroup()
-                        .addComponent(btn11, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn12, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MatchPanleLayout.createSequentialGroup()
-                        .addComponent(btn09, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn10, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MatchPanleLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(btn15, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(btn16, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MatchPanleLayout.createSequentialGroup()
-                        .addComponent(btn13, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn14, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(MatchPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn08, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn07, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn09, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -422,39 +336,38 @@ public class GameFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ScoreP, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(TimerL, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ShowTime, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(leaderBoardButton)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(ShowScore, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(TimerL, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(ShowTime, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(32, 32, 32)
-                            .addComponent(leaderBoardButton)
+                            .addComponent(ScoreP, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(ShowScore, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(leaderBoardButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(MatchPanle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(leaderBoardButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap())
+                        .addComponent(MatchPanle, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(4, 4, 4)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ShowTime)
-                    .addComponent(TimerL)
-                    .addComponent(leaderBoardButton)
-                    .addComponent(leaderBoardButton1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TimerL)
+                    .addComponent(ShowTime)
+                    .addComponent(leaderBoardButton))
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ScoreP)
-                    .addComponent(ShowScore))
+                    .addComponent(ShowScore)
+                    .addComponent(leaderBoardButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(MatchPanle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -463,154 +376,13 @@ public class GameFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn02MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn02MouseClicked
+    private void leaderBoardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leaderBoardButtonActionPerformed
+        new LeaderBoard().setVisible(true);
+    }//GEN-LAST:event_leaderBoardButtonActionPerformed
+
+    private void leaderBoardButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leaderBoardButton1ActionPerformed
         // TODO add your handling code here:
-        // Match m = new Match();
-        // m.setBtn(btn02);
-        // m.setNumberBtn(2);
-        // m.setValueMatch(next.get(1));
-        // u.getMatch().add(m);
-        // u.paintMatch();
-        // u.match();
-    }//GEN-LAST:event_btn02MouseClicked
-
-    private void btn13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn13MouseClicked
-        // TODO add your handling code here:
-        // Match m = new Match();
-        // m.setBtn(btn01);
-        // m.setNumberBtn(1);
-        // m.setValueMatch(next.get(0));
-        // u.getMatch().add(m);
-        // u.paintMatch();
-        // u.match();
-    }//GEN-LAST:event_btn13MouseClicked
-
-    private void btn03MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn03MouseClicked
-        // TODO add your handling code here:
-        // Match m = new Match();
-        // m.setBtn(btn03);
-        // m.setNumberBtn(3);
-        // m.setValueMatch(next.get(2));
-        // u.getMatch().add(m);
-        // u.paintMatch();
-        // u.match();
-    }//GEN-LAST:event_btn03MouseClicked
-
-    private void btn14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn14MouseClicked
-        // TODO add your handling code here:
-        // Match m = new Match();
-        // m.setBtn(btn01);
-        // m.setNumberBtn(1);
-        // m.setValueMatch(next.get(0));
-        // u.getMatch().add(m);
-        // u.paintMatch();
-        // u.match();
-    }//GEN-LAST:event_btn14MouseClicked
-
-    private void btn04MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn04MouseClicked
-        // Match m = new Match();
-        // m.setBtn(btn04);
-        // m.setNumberBtn(4);
-        // m.setValueMatch(next.get(3));
-        // u.getMatch().add(m);
-        // u.paintMatch();
-        // u.match();
-    }//GEN-LAST:event_btn04MouseClicked
-
-    private void btn15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn15MouseClicked
-        // TODO add your handling code here:
-        // Match m = new Match();
-        // m.setBtn(btn01);
-        // m.setNumberBtn(1);
-        // m.setValueMatch(next.get(0));
-        // u.getMatch().add(m);
-        // u.paintMatch();
-        // u.match();
-    }//GEN-LAST:event_btn15MouseClicked
-
-    private void btn05MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn05MouseClicked
-        // Match m = new Match();
-        // m.setBtn(btn05);
-        // m.setNumberBtn(5);
-        // m.setValueMatch(next.get(4));
-        // u.getMatch().add(m);
-        // u.paintMatch();
-        // u.match();
-    }//GEN-LAST:event_btn05MouseClicked
-
-    private void btn16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn16MouseClicked
-        // TODO add your handling code here:
-        // Match m = new Match();
-        // m.setBtn(btn01);
-        // m.setNumberBtn(1);
-        // m.setValueMatch(next.get(0));
-        // u.getMatch().add(m);
-        // u.paintMatch();
-        // u.match();
-    }//GEN-LAST:event_btn16MouseClicked
-
-    private void btn06MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn06MouseClicked
-        // Match m = new Match();
-        // m.setBtn(btn06);
-        // m.setNumberBtn(6);
-        // m.setValueMatch(next.get(5));
-        // u.getMatch().add(m);
-        // u.paintMatch();
-        // u.match();
-    }//GEN-LAST:event_btn06MouseClicked
-
-    private void btn07MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn07MouseClicked
-        // Match m = new Match();
-        // m.setBtn(btn07);
-        // m.setNumberBtn(7);
-        // m.setValueMatch(next.get(6));
-        // u.getMatch().add(m);
-        // u.paintMatch();
-        // u.match();
-    }//GEN-LAST:event_btn07MouseClicked
-
-    private void btn08MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn08MouseClicked
-        // Match m = new Match();
-        // m.setBtn(btn08);
-        // m.setNumberBtn(8);
-        // m.setValueMatch(next.get(7));
-        // u.getMatch().add(m);
-        // u.paintMatch();
-        // u.match();
-    }//GEN-LAST:event_btn08MouseClicked
-
-    private void btn09MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn09MouseClicked
-        // TODO add your handling code here:
-        // Match m = new Match();
-        // m.setBtn(btn01);
-        // m.setNumberBtn(1);
-        // m.setValueMatch(next.get(0));
-        // u.getMatch().add(m);
-        // u.paintMatch();
-        // u.match();
-    }//GEN-LAST:event_btn09MouseClicked
-
-    private void btn11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn11MouseClicked
-        // TODO add your handling code here:
-        // Match m = new Match();
-        // m.setBtn(btn01);
-        // m.setNumberBtn(1);
-        // m.setValueMatch(next.get(0));
-        // u.getMatch().add(m);
-        // u.paintMatch();
-        // u.match();
-    }//GEN-LAST:event_btn11MouseClicked
-
-    private void btn10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn10MouseClicked
-        // TODO add your handling code here:
-        // Match m = new Match();
-        // m.setBtn(btn01);
-        // m.setNumberBtn(1);
-        // m.setValueMatch(next.get(0));
-        // u.getMatch().add(m);
-        // u.paintMatch();
-        // u.match();
-    }//GEN-LAST:event_btn10MouseClicked
+    }//GEN-LAST:event_leaderBoardButton1ActionPerformed
 
     private void btn01MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn01MouseClicked
         //u.evtBtn(btn01,evt,next.get(0));
@@ -623,7 +395,7 @@ public class GameFrame extends javax.swing.JFrame {
         // u.match();
     }//GEN-LAST:event_btn01MouseClicked
 
-    private void btn12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn12MouseClicked
+    private void btn08MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn08MouseClicked
         // TODO add your handling code here:
         // Match m = new Match();
         // m.setBtn(btn01);
@@ -632,15 +404,81 @@ public class GameFrame extends javax.swing.JFrame {
         // u.getMatch().add(m);
         // u.paintMatch();
         // u.match();
-    }//GEN-LAST:event_btn12MouseClicked
+    }//GEN-LAST:event_btn08MouseClicked
 
-    private void leaderBoardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leaderBoardButtonActionPerformed
-        new LeaderBoard().setVisible(true);
-    }//GEN-LAST:event_leaderBoardButtonActionPerformed
-
-    private void leaderBoardButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leaderBoardButton1ActionPerformed
+    private void btn07MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn07MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_leaderBoardButton1ActionPerformed
+        // Match m = new Match();
+        // m.setBtn(btn01);
+        // m.setNumberBtn(1);
+        // m.setValueMatch(next.get(0));
+        // u.getMatch().add(m);
+        // u.paintMatch();
+        // u.match();
+    }//GEN-LAST:event_btn07MouseClicked
+
+    private void btn06MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn06MouseClicked
+        // Match m = new Match();
+        // m.setBtn(btn06);
+        // m.setNumberBtn(6);
+        // m.setValueMatch(next.get(5));
+        // u.getMatch().add(m);
+        // u.paintMatch();
+        // u.match();
+    }//GEN-LAST:event_btn06MouseClicked
+
+    private void btn05MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn05MouseClicked
+        // Match m = new Match();
+        // m.setBtn(btn05);
+        // m.setNumberBtn(5);
+        // m.setValueMatch(next.get(4));
+        // u.getMatch().add(m);
+        // u.paintMatch();
+        // u.match();
+    }//GEN-LAST:event_btn05MouseClicked
+
+    private void btn04MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn04MouseClicked
+        // Match m = new Match();
+        // m.setBtn(btn04);
+        // m.setNumberBtn(4);
+        // m.setValueMatch(next.get(3));
+        // u.getMatch().add(m);
+        // u.paintMatch();
+        // u.match();
+    }//GEN-LAST:event_btn04MouseClicked
+
+    private void btn03MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn03MouseClicked
+        // TODO add your handling code here:
+        // Match m = new Match();
+        // m.setBtn(btn03);
+        // m.setNumberBtn(3);
+        // m.setValueMatch(next.get(2));
+        // u.getMatch().add(m);
+        // u.paintMatch();
+        // u.match();
+    }//GEN-LAST:event_btn03MouseClicked
+
+    private void btn09MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn09MouseClicked
+        // TODO add your handling code here:
+        // Match m = new Match();
+        // m.setBtn(btn01);
+        // m.setNumberBtn(1);
+        // m.setValueMatch(next.get(0));
+        // u.getMatch().add(m);
+        // u.paintMatch();
+        // u.match();
+    }//GEN-LAST:event_btn09MouseClicked
+
+    private void btn02MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn02MouseClicked
+        // TODO add your handling code here:
+        // Match m = new Match();
+        // m.setBtn(btn02);
+        // m.setNumberBtn(2);
+        // m.setValueMatch(next.get(1));
+        // u.getMatch().add(m);
+        // u.paintMatch();
+        // u.match();
+    }//GEN-LAST:event_btn02MouseClicked
 
     /**
      * @param args the command line arguments
@@ -660,22 +498,15 @@ public class GameFrame extends javax.swing.JFrame {
     private javax.swing.JLabel ShowScore;
     private javax.swing.JLabel ShowTime;
     private javax.swing.JLabel TimerL;
-    public static javax.swing.JButton btn01;
-    public static javax.swing.JButton btn02;
-    public static javax.swing.JButton btn03;
-    public static javax.swing.JButton btn04;
-    public static javax.swing.JButton btn05;
-    public static javax.swing.JButton btn06;
-    public static javax.swing.JButton btn07;
-    public static javax.swing.JButton btn08;
-    public static javax.swing.JButton btn09;
-    public static javax.swing.JButton btn10;
-    public static javax.swing.JButton btn11;
-    public static javax.swing.JButton btn12;
-    public static javax.swing.JButton btn13;
-    public static javax.swing.JButton btn14;
-    public static javax.swing.JButton btn15;
-    public static javax.swing.JButton btn16;
+    private javax.swing.JButton btn01;
+    private javax.swing.JButton btn02;
+    private javax.swing.JButton btn03;
+    private javax.swing.JButton btn04;
+    private javax.swing.JButton btn05;
+    private javax.swing.JButton btn06;
+    private javax.swing.JButton btn07;
+    private javax.swing.JButton btn08;
+    private javax.swing.JButton btn09;
     private javax.swing.JButton leaderBoardButton;
     private javax.swing.JButton leaderBoardButton1;
     // End of variables declaration//GEN-END:variables
