@@ -9,11 +9,13 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import com.mycompany.memorygame.Controler.ImageController;
+import com.mycompany.memorygame.Controler.Match;
 
 /**
  *
@@ -28,7 +30,12 @@ public class GameFrame extends javax.swing.JFrame {
     public static String tempUser = "asd";
 
   
-    private ImageController imageController;
+    int clic =0;
+
+    ImageController imageController;
+
+    List<Integer> next = imageController.rowsTableAll();
+
     
     
     /**
@@ -36,18 +43,21 @@ public class GameFrame extends javax.swing.JFrame {
      */
     public GameFrame(String user) {
         initComponents();
-        String[] dataset={
-        "src\\main\\java\\com\\mycompany\\memorygame\\Dataset\\01.png",
-        "src\\main\\java\\com\\mycompany\\memorygame\\Dataset\\02.png",
-        "src\\main\\java\\com\\mycompany\\memorygame\\Dataset\\03.png",
-        "src\\main\\java\\com\\mycompany\\memorygame\\Dataset\\04.png",
-        "src\\main\\java\\com\\mycompany\\memorygame\\Dataset\\05.png",
-        "src\\main\\java\\com\\mycompany\\memorygame\\Dataset\\06.png",
-        "src\\main\\java\\com\\mycompany\\memorygame\\Dataset\\07.png",
-        "src\\main\\java\\com\\mycompany\\memorygame\\Dataset\\08.png",
-        "src\\main\\java\\com\\mycompany\\memorygame\\Dataset\\09.png",
-        };
-        this.imageController = new ImageController(dataset);
+        this.setLocationRelativeTo(this);
+
+        imageController.imgStart();
+        // String[] dataset={
+        // "src\\main\\java\\com\\mycompany\\memorygame\\Dataset\\01.png",
+        // "src\\main\\java\\com\\mycompany\\memorygame\\Dataset\\02.png",
+        // "src\\main\\java\\com\\mycompany\\memorygame\\Dataset\\03.png",
+        // "src\\main\\java\\com\\mycompany\\memorygame\\Dataset\\04.png",
+        // "src\\main\\java\\com\\mycompany\\memorygame\\Dataset\\05.png",
+        // "src\\main\\java\\com\\mycompany\\memorygame\\Dataset\\06.png",
+        // "src\\main\\java\\com\\mycompany\\memorygame\\Dataset\\07.png",
+        // "src\\main\\java\\com\\mycompany\\memorygame\\Dataset\\08.png",
+        // "src\\main\\java\\com\\mycompany\\memorygame\\Dataset\\09.png",
+        // };
+        // this.imageController = new ImageController(dataset);
   
     }
 
@@ -385,99 +395,99 @@ public class GameFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_leaderBoardButton1ActionPerformed
 
     private void btn01MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn01MouseClicked
-        //u.evtBtn(btn01,evt,next.get(0));
-        // Match m = new Match();
-        // m.setBtn(btn01);
-        // m.setNumberBtn(1);
-        // m.setValueMatch(next.get(0));
-        // u.getMatch().add(m);
-        // u.paintMatch();
-        // u.match();
+        
+        Match match = new Match();
+        match.setBtn(btn01);
+        match.setNumberBtn(1);
+        match.setValueMatch(next.get(0));
+        imageController.getMatch().add(match);
+        imageController.paintMatch();
+        imageController.match();
     }//GEN-LAST:event_btn01MouseClicked
 
     private void btn08MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn08MouseClicked
         // TODO add your handling code here:
-        // Match m = new Match();
-        // m.setBtn(btn01);
-        // m.setNumberBtn(1);
-        // m.setValueMatch(next.get(0));
-        // u.getMatch().add(m);
-        // u.paintMatch();
-        // u.match();
+        Match match = new Match();
+        match.setBtn(btn08);
+        match.setNumberBtn(1);
+        match.setValueMatch(next.get(0));
+        imageController.getMatch().add(match);
+        imageController.paintMatch();
+        imageController.match();
     }//GEN-LAST:event_btn08MouseClicked
 
     private void btn07MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn07MouseClicked
         // TODO add your handling code here:
-        // Match m = new Match();
-        // m.setBtn(btn01);
-        // m.setNumberBtn(1);
-        // m.setValueMatch(next.get(0));
-        // u.getMatch().add(m);
-        // u.paintMatch();
-        // u.match();
+        Match match = new Match();
+        match.setBtn(btn07);
+        match.setNumberBtn(1);
+        match.setValueMatch(next.get(0));
+        imageController.getMatch().add(match);
+        imageController.paintMatch();
+        imageController.match();
     }//GEN-LAST:event_btn07MouseClicked
 
     private void btn06MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn06MouseClicked
-        // Match m = new Match();
-        // m.setBtn(btn06);
-        // m.setNumberBtn(6);
-        // m.setValueMatch(next.get(5));
-        // u.getMatch().add(m);
-        // u.paintMatch();
-        // u.match();
+        Match match = new Match();
+        match.setBtn(btn06);
+        match.setNumberBtn(6);
+        match.setValueMatch(next.get(5));
+        imageController.getMatch().add(match);
+        imageController.paintMatch();
+        imageController.match();
     }//GEN-LAST:event_btn06MouseClicked
 
     private void btn05MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn05MouseClicked
-        // Match m = new Match();
-        // m.setBtn(btn05);
-        // m.setNumberBtn(5);
-        // m.setValueMatch(next.get(4));
-        // u.getMatch().add(m);
-        // u.paintMatch();
-        // u.match();
+        Match match = new Match();
+        match.setBtn(btn05);
+        match.setNumberBtn(5);
+        match.setValueMatch(next.get(4));
+        imageController.getMatch().add(match);
+        imageController.paintMatch();
+        imageController.match();
     }//GEN-LAST:event_btn05MouseClicked
 
     private void btn04MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn04MouseClicked
-        // Match m = new Match();
-        // m.setBtn(btn04);
-        // m.setNumberBtn(4);
-        // m.setValueMatch(next.get(3));
-        // u.getMatch().add(m);
-        // u.paintMatch();
-        // u.match();
+        Match match = new Match();
+        match.setBtn(btn04);
+        match.setNumberBtn(4);
+        match.setValueMatch(next.get(3));
+        imageController.getMatch().add(match);
+        imageController.paintMatch();
+        imageController.match();
     }//GEN-LAST:event_btn04MouseClicked
 
     private void btn03MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn03MouseClicked
         // TODO add your handling code here:
-        // Match m = new Match();
-        // m.setBtn(btn03);
-        // m.setNumberBtn(3);
-        // m.setValueMatch(next.get(2));
-        // u.getMatch().add(m);
-        // u.paintMatch();
-        // u.match();
+        Match match = new Match();
+        match.setBtn(btn03);
+        match.setNumberBtn(3);
+        match.setValueMatch(next.get(2));
+        imageController.getMatch().add(match);
+        imageController.paintMatch();
+        imageController.match();
     }//GEN-LAST:event_btn03MouseClicked
 
     private void btn09MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn09MouseClicked
         // TODO add your handling code here:
-        // Match m = new Match();
-        // m.setBtn(btn01);
-        // m.setNumberBtn(1);
-        // m.setValueMatch(next.get(0));
-        // u.getMatch().add(m);
-        // u.paintMatch();
-        // u.match();
+        Match match = new Match();
+        match.setBtn(btn09);
+        match.setNumberBtn(1);
+        match.setValueMatch(next.get(0));
+        imageController.getMatch().add(match);
+        imageController.paintMatch();
+        imageController.match();
     }//GEN-LAST:event_btn09MouseClicked
 
     private void btn02MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn02MouseClicked
         // TODO add your handling code here:
-        // Match m = new Match();
-        // m.setBtn(btn02);
-        // m.setNumberBtn(2);
-        // m.setValueMatch(next.get(1));
-        // u.getMatch().add(m);
-        // u.paintMatch();
-        // u.match();
+        Match match = new Match();
+        match.setBtn(btn02);
+        match.setNumberBtn(2);
+        match.setValueMatch(next.get(1));
+        imageController.getMatch().add(match);
+        imageController.paintMatch();
+        imageController.match();
     }//GEN-LAST:event_btn02MouseClicked
 
     /**
@@ -498,15 +508,15 @@ public class GameFrame extends javax.swing.JFrame {
     private javax.swing.JLabel ShowScore;
     private javax.swing.JLabel ShowTime;
     private javax.swing.JLabel TimerL;
-    private javax.swing.JButton btn01;
-    private javax.swing.JButton btn02;
-    private javax.swing.JButton btn03;
-    private javax.swing.JButton btn04;
-    private javax.swing.JButton btn05;
-    private javax.swing.JButton btn06;
-    private javax.swing.JButton btn07;
-    private javax.swing.JButton btn08;
-    private javax.swing.JButton btn09;
+    public static javax.swing.JButton btn01;
+    public static javax.swing.JButton btn02;
+    public static javax.swing.JButton btn03;
+    public static javax.swing.JButton btn04;
+    public static javax.swing.JButton btn05;
+    public static javax.swing.JButton btn06;
+    public static javax.swing.JButton btn07;
+    public static javax.swing.JButton btn08;
+    public static javax.swing.JButton btn09;
     private javax.swing.JButton leaderBoardButton;
     private javax.swing.JButton leaderBoardButton1;
     // End of variables declaration//GEN-END:variables
