@@ -1,14 +1,14 @@
 package com.mycompany.memorygame.Controler;
 
-import com.mycompany.memorygame.GameFrame;
+import com.mycompany.memorygame.MatchGame;
 
 public class CountDown extends Thread {
     private int time;
     private boolean isruning = true;       
     private Match matchControler;
-    private GameFrame gameFrame;
+    private MatchGame gameFrame;
 
-    public CountDown(int time, Match matchControler, GameFrame gameFrame) {
+    public CountDown(int time, Match matchControler, MatchGame gameFrame) {
         this.time = time;
         this.matchControler = matchControler;
         this.gameFrame = gameFrame;
