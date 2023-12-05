@@ -43,7 +43,6 @@ public class MatchGame extends javax.swing.JFrame {
 
         imageController = new ImageController();
         List<JButton> buttons = Arrays.asList(btn01, btn02, btn03, btn04, btn05, btn06, btn07, btn08, btn09, btn10, btn11, btn12);
-        // imageController.setImages(buttons);
         imageController.setStartImage(buttons);
         
   

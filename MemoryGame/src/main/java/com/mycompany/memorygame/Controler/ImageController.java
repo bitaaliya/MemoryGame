@@ -27,12 +27,18 @@ public class ImageController {
         }
 
         currentIndex = 0;
-    }
+    }   
 
     public void setStartImage(List<JButton> buttons) {
-        
-        // path : PBO/proyek/MemoryGame/src/main/java/com/mycompany/memorygame/Controler/StartImage.png
+        ImageIcon startImage = new ImageIcon("PBO/proyek/MemoryGame/src/main/java/com/mycompany/memorygame/Controler/StartImage.png");
+    
+        for (JButton button : buttons) {
+            button.setIcon(startImage);
+            button.setEnabled(true); 
+            button.addActionListener(e -> handleButtonClick(button)); 
+        }
     }
+    
 
     public void setImages(List<JButton> buttons) {
         for (JButton button : buttons) {
@@ -44,4 +50,9 @@ public class ImageController {
         button.setIcon(images.get(currentIndex));
         currentIndex++;
     }
+
+    private void handleButtonClick(JButton button) {
+        setNextImage(button);
+    }
+    
 }
