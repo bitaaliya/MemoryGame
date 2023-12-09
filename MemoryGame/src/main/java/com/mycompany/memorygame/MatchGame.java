@@ -24,7 +24,6 @@ import javax.swing.text.Utilities;
 import com.mycompany.memorygame.Controler.ImageController;
 import com.mycompany.memorygame.Controler.MatchController;
 
-
 /**
  *
  * @author MSBENAVIDES
@@ -38,20 +37,19 @@ public class MatchGame extends javax.swing.JFrame {
     protected String user;
     public static String tempUser = "asd";
 
-    int clic =0;
+    int clic = 0;
 
-    
-    private ImageController imageController ;
-    
+    private ImageController imageController;
+
     List<Integer> shuffledIndices = ImageController.rowsTableAll();
-    
+
     List<Integer> next = ImageController.rowsTableAll();
 
-    int valB1 = 0, valB2=1, valB3 = 2, valB4 = 3, valB5 = 4, valB6 =5, valB7=6, valB8=7;
+    int valB1 = 0, valB2 = 1, valB3 = 2, valB4 = 3, valB5 = 4, valB6 = 5, valB7 = 6, valB8 = 7;
 
     public MatchGame(String user) {
         initComponents();
-        
+
         this.setLocationRelativeTo(this);
         imageController = new ImageController();
         imageController.setMatchGame(this);
@@ -84,7 +82,6 @@ public class MatchGame extends javax.swing.JFrame {
 
         Map<String, Integer> variableValues = new HashMap<>();
 
-        
         valB1 = getValue(variableList.get(0), shuffledIndices, variableValues);
         valB2 = getValue(variableList.get(1), shuffledIndices, variableValues);
         valB3 = getValue(variableList.get(2), shuffledIndices, variableValues);
@@ -122,7 +119,7 @@ public class MatchGame extends javax.swing.JFrame {
                 return; // Ignore the click if the button has already been matched
             }
         }
-    
+
         MatchController matchController = new MatchController();
         matchController.setBtn(button);
         matchController.setNumberBtn(numberBtn);
@@ -192,8 +189,10 @@ public class MatchGame extends javax.swing.JFrame {
         this.ShowScore.setText(text);
 
     }
+
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jButton3 = new javax.swing.JButton();
@@ -320,47 +319,67 @@ public class MatchGame extends javax.swing.JFrame {
         javax.swing.GroupLayout MatchPanleLayout = new javax.swing.GroupLayout(MatchPanle);
         MatchPanle.setLayout(MatchPanleLayout);
         MatchPanleLayout.setHorizontalGroup(
-            MatchPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MatchPanleLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(MatchPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn01, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn05, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(MatchPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MatchPanleLayout.createSequentialGroup()
-                        .addComponent(btn02, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn03, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn04, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MatchPanleLayout.createSequentialGroup()
-                        .addComponent(btn06, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn07, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn08, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                MatchPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(MatchPanleLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(
+                                        MatchPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(btn01, javax.swing.GroupLayout.PREFERRED_SIZE, 72,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(btn05, javax.swing.GroupLayout.PREFERRED_SIZE, 72,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(
+                                        MatchPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(MatchPanleLayout.createSequentialGroup()
+                                                        .addComponent(btn02, javax.swing.GroupLayout.PREFERRED_SIZE, 72,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(18, 18, 18)
+                                                        .addComponent(btn03, javax.swing.GroupLayout.PREFERRED_SIZE, 72,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(18, 18, 18)
+                                                        .addComponent(btn04, javax.swing.GroupLayout.PREFERRED_SIZE, 72,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(MatchPanleLayout.createSequentialGroup()
+                                                        .addComponent(btn06, javax.swing.GroupLayout.PREFERRED_SIZE, 72,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(18, 18, 18)
+                                                        .addComponent(btn07, javax.swing.GroupLayout.PREFERRED_SIZE, 72,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(18, 18, 18)
+                                                        .addComponent(btn08, javax.swing.GroupLayout.PREFERRED_SIZE, 72,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
         MatchPanleLayout.setVerticalGroup(
-            MatchPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MatchPanleLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(MatchPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MatchPanleLayout.createSequentialGroup()
-                        .addGroup(MatchPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn02, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn03, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn04, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(MatchPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btn05, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn06, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn07, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn08, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btn01, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                MatchPanleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(MatchPanleLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(MatchPanleLayout
+                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MatchPanleLayout
+                                                .createSequentialGroup()
+                                                .addGroup(MatchPanleLayout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(btn02, javax.swing.GroupLayout.PREFERRED_SIZE, 99,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(btn03, javax.swing.GroupLayout.PREFERRED_SIZE, 99,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(btn04, javax.swing.GroupLayout.PREFERRED_SIZE, 99,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(18, 18, 18)
+                                                .addGroup(MatchPanleLayout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(btn05, javax.swing.GroupLayout.PREFERRED_SIZE, 99,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(btn06, javax.swing.GroupLayout.PREFERRED_SIZE, 99,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(btn07, javax.swing.GroupLayout.PREFERRED_SIZE, 99,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(btn08, javax.swing.GroupLayout.PREFERRED_SIZE, 99,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(btn01, javax.swing.GroupLayout.PREFERRED_SIZE, 99,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
         TimerL.setBackground(new java.awt.Color(0, 0, 0));
         TimerL.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -415,125 +434,141 @@ public class MatchGame extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(MatchPanle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(14, 14, 14)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(ScoreP, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(ShowScore, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(TimerL, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(ShowTime, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(29, 29, 29)
-                            .addComponent(ProfileButton)
-                            .addGap(28, 28, 28)
-                            .addComponent(ResetButton))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(60, 60, 60)
-                            .addComponent(leaderBoardButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap(56, Short.MAX_VALUE)))
-        );
+                                .addContainerGap(15, Short.MAX_VALUE)
+                                .addComponent(MatchPanle, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(14, 14, 14))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                        .addGap(14, 14, 14)
+                                        .addGroup(layout
+                                                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout
+                                                        .createSequentialGroup()
+                                                        .addComponent(ScoreP, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(
+                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                        .addComponent(ShowScore, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(TimerL, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(
+                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                        .addComponent(ShowTime, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(layout.createSequentialGroup()
+                                                        .addGap(29, 29, 29)
+                                                        .addComponent(ProfileButton)
+                                                        .addGap(28, 28, 28)
+                                                        .addComponent(ResetButton))
+                                                .addGroup(layout.createSequentialGroup()
+                                                        .addGap(60, 60, 60)
+                                                        .addComponent(leaderBoardButton1,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 104,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addContainerGap(56, Short.MAX_VALUE))));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(111, Short.MAX_VALUE)
-                .addComponent(MatchPanle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(10, 10, 10)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(TimerL)
-                        .addComponent(ShowTime)
-                        .addComponent(leaderBoardButton1))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(17, 17, 17)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(ScoreP)
-                                .addComponent(ShowScore)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(ResetButton)
-                                .addComponent(ProfileButton))))
-                    .addContainerGap(260, Short.MAX_VALUE)))
-        );
+                                .addContainerGap(111, Short.MAX_VALUE)
+                                .addComponent(MatchPanle, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(TimerL)
+                                                .addComponent(ShowTime)
+                                                .addComponent(leaderBoardButton1))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(layout.createSequentialGroup()
+                                                        .addGap(17, 17, 17)
+                                                        .addGroup(layout
+                                                                .createParallelGroup(
+                                                                        javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                .addComponent(ScoreP)
+                                                                .addComponent(ShowScore)))
+                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout
+                                                        .createSequentialGroup()
+                                                        .addPreferredGap(
+                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addGroup(layout
+                                                                .createParallelGroup(
+                                                                        javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                .addComponent(ResetButton)
+                                                                .addComponent(ProfileButton))))
+                                        .addContainerGap(260, Short.MAX_VALUE))));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn02MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn02MouseClicked
+    private void btn02MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btn02MouseClicked
         Collections.shuffle(shuffledIndices);
 
         handleButtonClick(btn02, 2, next.get(valB2));
-        System.out.println("valB  "+valB2); 
+        System.out.println("valB  " + valB2);
 
-    }//GEN-LAST:event_btn02MouseClicked
+    }// GEN-LAST:event_btn02MouseClicked
 
-    private void btn03MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn03MouseClicked
+    private void btn03MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btn03MouseClicked
         handleButtonClick(btn03, 3, next.get(valB3));
-        System.out.println("valB3  "+valB3);  
-    }//GEN-LAST:event_btn03MouseClicked
+        System.out.println("valB3  " + valB3);
+    }// GEN-LAST:event_btn03MouseClicked
 
-    private void btn03ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn03ActionPerformed
+    private void btn03ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btn03ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn03ActionPerformed
+    }// GEN-LAST:event_btn03ActionPerformed
 
-    private void btn04MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn04MouseClicked
+    private void btn04MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btn04MouseClicked
         handleButtonClick(btn04, 4, next.get(valB4));
-        System.out.println("valB4  "+valB4);
-    }//GEN-LAST:event_btn04MouseClicked
+        System.out.println("valB4  " + valB4);
+    }// GEN-LAST:event_btn04MouseClicked
 
-    private void btn05MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn05MouseClicked
+    private void btn05MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btn05MouseClicked
         handleButtonClick(btn05, 5, next.get(valB5));
-        System.out.println("valB5  " +valB5);
-    }//GEN-LAST:event_btn05MouseClicked
+        System.out.println("valB5  " + valB5);
+    }// GEN-LAST:event_btn05MouseClicked
 
-    private void btn06MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn06MouseClicked
+    private void btn06MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btn06MouseClicked
         handleButtonClick(btn06, 6, next.get(valB6));
-        System.out.println("valB6  " +valB6);
-    }//GEN-LAST:event_btn06MouseClicked
+        System.out.println("valB6  " + valB6);
+    }// GEN-LAST:event_btn06MouseClicked
 
-    private void btn07MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn07MouseClicked
+    private void btn07MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btn07MouseClicked
         handleButtonClick(btn07, 7, next.get(valB7));
-        System.out.println("valB7  " +valB7);
-    }//GEN-LAST:event_btn07MouseClicked
+        System.out.println("valB7  " + valB7);
+    }// GEN-LAST:event_btn07MouseClicked
 
-    private void btn08MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn08MouseClicked
+    private void btn08MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btn08MouseClicked
         handleButtonClick(btn08, 8, next.get(valB8));
-        System.out.println("valB8  " +valB8);
-    }//GEN-LAST:event_btn08MouseClicked
+        System.out.println("valB8  " + valB8);
+    }// GEN-LAST:event_btn08MouseClicked
 
-    private void btn01MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn01MouseClicked
+    private void btn01MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btn01MouseClicked
         handleButtonClick(btn01, 1, next.get(valB1));
-        System.out.println("valB1  " +valB1);
-    }//GEN-LAST:event_btn01MouseClicked
+        System.out.println("valB1  " + valB1);
+    }// GEN-LAST:event_btn01MouseClicked
 
-    private void leaderBoardButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leaderBoardButton1ActionPerformed
+    private void leaderBoardButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_leaderBoardButton1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_leaderBoardButton1ActionPerformed
+    }// GEN-LAST:event_leaderBoardButton1ActionPerformed
 
-    private void ProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProfileButtonActionPerformed
+    private void ProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ProfileButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ProfileButtonActionPerformed
+    }// GEN-LAST:event_ProfileButtonActionPerformed
 
-    private void ResetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetButtonActionPerformed
+    private void ResetButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ResetButtonActionPerformed
         resetGame();
-    }//GEN-LAST:event_ResetButtonActionPerformed
+    }// GEN-LAST:event_ResetButtonActionPerformed
 
-    private void btn01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn01ActionPerformed
+    private void btn01ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btn01ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn01ActionPerformed
+    }// GEN-LAST:event_btn01ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -56,9 +56,7 @@ public class MatchController {
     }
 
     public void end() {
-        
+
     }
-    
-    
 
 }

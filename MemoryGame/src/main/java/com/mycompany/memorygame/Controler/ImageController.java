@@ -14,16 +14,12 @@ import com.mycompany.memorygame.MatchGame;
 import com.mycompany.memorygame.Controler.MatchController;
 
 public class ImageController {
-    
-    
-    // private int currentIndex;
 
     private MatchGame matchGame;
-    
 
     private List<MatchController> match = new ArrayList<>();
     private List<MatchController> ok = new ArrayList<>();
-    private int totalElements = 8; 
+    private int totalElements = 8;
 
     public void setMatchGame(MatchGame matchGame) {
         this.matchGame = matchGame;
@@ -49,18 +45,18 @@ public class ImageController {
         List<Integer> all = new ArrayList<>();
         List<Integer> firstSet = rowsTable();
         List<Integer> secondSet = rowsTable();
-    
+
         all.addAll(firstSet);
         all.addAll(secondSet);
-    
+
         // Shuffle the combined list
         Collections.shuffle(all);
-    
+
         return all;
     }
 
     public void setStartImage() {
-        
+
         MatchGame.btn01.setIcon(new ImageIcon(getClass().getResource("StartImage.png")));
         MatchGame.btn02.setIcon(new ImageIcon(getClass().getResource("StartImage.png")));
         MatchGame.btn03.setIcon(new ImageIcon(getClass().getResource("StartImage.png")));
@@ -72,14 +68,12 @@ public class ImageController {
 
     }
 
-    
-    
-
     public void setImages(JButton buttons, int value) {
-        
+
         try {
-            
-            buttons.setIcon(new ImageIcon(getClass().getResource("/com/mycompany/memorygame/Dataset/0" + value + ".png")));
+
+            buttons.setIcon(
+                    new ImageIcon(getClass().getResource("/com/mycompany/memorygame/Dataset/0" + value + ".png")));
 
             buttons.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             buttons.setVerticalAlignment(javax.swing.SwingConstants.CENTER);
@@ -92,7 +86,7 @@ public class ImageController {
         System.out.println(getMatch().size());
         if (getMatch().size() == 1) {
             setImages(getMatch().get(0).getBtn(), getMatch().get(0).getValueMatch());
-        } else if(getMatch().size() == 2) {
+        } else if (getMatch().size() == 2) {
             setImages(getMatch().get(1).getBtn(), getMatch().get(1).getValueMatch());
         }
     }
@@ -127,22 +121,21 @@ public class ImageController {
         getMatch().clear();
         matchGame.shuffleValues();
         for (int i = 0; i < ok.size(); i++) {
-                setImages(ok.get(i).getBtn(), ok.get(i).getValueMatch());
-                ok.get(i).getBtn().setEnabled(true);
-            }
+            setImages(ok.get(i).getBtn(), ok.get(i).getValueMatch());
+            ok.get(i).getBtn().setEnabled(true);
+        }
         ok.clear();
         setStartImage();
-            
+
         for (int i = 0; i < ok.size(); i++) {
             System.out.println(ok.get(i).getNumberBtn() + "_" + ok.get(i).getValueMatch());
             setImages(ok.get(i).getBtn(), ok.get(i).getValueMatch());
             ok.get(i).getBtn().setEnabled(false);
         }
         setStartImageMatch();
-        
 
     }
-    
+
     // METODE PEMADAN
     public void match() {
         if (getMatch().size() == 2) {
@@ -165,9 +158,6 @@ public class ImageController {
             }
         }
     }
-    
-
-    
 
     public void setTimeout(Runnable runnable, int delay) {
         new Thread(() -> {
