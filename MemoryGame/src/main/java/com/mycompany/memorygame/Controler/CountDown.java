@@ -5,10 +5,10 @@ import com.mycompany.memorygame.MatchGame;
 public class CountDown extends Thread {
     private int time;
     private boolean isruning = true;       
-    private Match matchControler;
+    private MatchController matchControler;
     private MatchGame gameFrame;
 
-    public CountDown(int time, Match matchControler, MatchGame gameFrame) {
+    public CountDown(int time, MatchController matchControler, MatchGame gameFrame) {
         this.time = time;
         this.matchControler = matchControler;
         this.gameFrame = gameFrame;

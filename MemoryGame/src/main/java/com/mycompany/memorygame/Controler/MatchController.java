@@ -1,59 +1,64 @@
+/*
+ * Untuk mengubah header lisensi, pilih Header Lisensi di Properti Proyek.
+ * Untuk mengubah file template ini, pilih Alat | Templat
+ * dan buka templat di editor.
+ */
 package com.mycompany.memorygame.Controler;
 
 import javax.swing.JButton;
-import javax.swing.ImageIcon;
-import java.util.List;
 
+/**
+ *
+ * Penulis: MSBENAVIDES
+ */
 public class MatchController {
-    private ImageIcon hiddenImage; // The image used when the card is face-down
-    private JButton firstButton; // The first button clicked
-    private JButton secondButton; // The second button clicked
+
+    private int numberBtn;
+    private JButton btn;
+    private int valueMatch;
 
     public MatchController() {
-        // Set the image for the face-down cards (you can customize this)
-        hiddenImage = new ImageIcon("PBO/proyek/MemoryGame/src/main/java/com/mycompany/memorygame/Controler/HiddenImage.png");
-        reset();
     }
 
-    public void reset() {
-        firstButton = null;
-        secondButton = null;
+    public MatchController(int numberBtn, JButton btn, int valueMatch) {
+        this.numberBtn = numberBtn;
+        this.btn = btn;
+        this.valueMatch = valueMatch;
     }
 
-    public boolean isMatch(JButton button1, JButton button2) {
-        ImageIcon icon1 = (ImageIcon) button1.getIcon();
-        ImageIcon icon2 = (ImageIcon) button2.getIcon();
-
-        // Implement your logic to check if the images match
-        // For example, you might compare file paths or image indices
-
-        return icon1.getDescription().equals(icon2.getDescription());
+    public int getNumberBtn() {
+        return numberBtn;
     }
 
-    public void revealImage(JButton button) {
-        button.setIcon(hiddenImage);
+    public void setNumberBtn(int numberBtn) {
+        this.numberBtn = numberBtn;
     }
 
-    public void hideImage(JButton button) {
-        button.setIcon(null);
+    public JButton getBtn() {
+        return btn;
     }
 
-    public JButton getFirstButton() {
-        return firstButton;
+    public void setBtn(JButton btn) {
+        this.btn = btn;
     }
 
-    public JButton getSecondButton() {
-        return secondButton;
+    public int getValueMatch() {
+        return valueMatch;
     }
 
-    public void setFirstButton(JButton button) {
-        firstButton = button;
+    public void setValueMatch(int valueMatch) {
+        this.valueMatch = valueMatch;
     }
 
-    public void setSecondButton(JButton button) {
-        secondButton = button;
+    @Override
+    public String toString() {
+        return "Match{" + "numberBtn=" + numberBtn + ", btn=" + btn + ", valueMatch=" + valueMatch + '}';
     }
 
     public void end() {
+        
     }
+    
+    
+
 }
