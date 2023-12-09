@@ -10,8 +10,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.Collections;
+import java.util.HashMap;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -35,17 +39,80 @@ public class MatchGame extends javax.swing.JFrame {
     public static String tempUser = "asd";
 
     int clic =0;
-    
-    private ImageController imageController = new ImageController();;
 
+    
+    private ImageController imageController ;
+    
+    List<Integer> shuffledIndices = ImageController.rowsTableAll();
+    
     List<Integer> next = ImageController.rowsTableAll();
+
+    int valB1 = 0, valB2=1, valB3 = 2, valB4 = 3, valB5 = 4, valB6 =5, valB7=6, valB8=7;
 
     public MatchGame(String user) {
         initComponents();
         
         this.setLocationRelativeTo(this);
+        imageController = new ImageController();
+        imageController.setMatchGame(this);
+        shuffleValues();
         imageController.setStartImage();
 
+    }
+
+    public void resetGame() {
+        imageController.reset();
+    }
+
+    public void shuffleValues() {
+
+        List<String> variableList = new ArrayList<>();
+        variableList.add("variabel1");
+        variableList.add("variabel2");
+        variableList.add("variabel3");
+        variableList.add("variabel4");
+        variableList.add("variabel5");
+        variableList.add("variabel6");
+        variableList.add("variabel7");
+        variableList.add("variabel8");
+
+        List<Integer> shuffledIndices = new ArrayList<>();
+        for (int i = 0; i < variableList.size(); i++) {
+            shuffledIndices.add(i);
+        }
+        Collections.shuffle(shuffledIndices);
+
+        Map<String, Integer> variableValues = new HashMap<>();
+
+        
+        valB1 = getValue(variableList.get(0), shuffledIndices, variableValues);
+        valB2 = getValue(variableList.get(1), shuffledIndices, variableValues);
+        valB3 = getValue(variableList.get(2), shuffledIndices, variableValues);
+        valB4 = getValue(variableList.get(3), shuffledIndices, variableValues);
+        valB5 = getValue(variableList.get(4), shuffledIndices, variableValues);
+        valB6 = getValue(variableList.get(5), shuffledIndices, variableValues);
+        valB7 = getValue(variableList.get(6), shuffledIndices, variableValues);
+        valB8 = getValue(variableList.get(7), shuffledIndices, variableValues);
+
+        System.out.println("valB1: " + valB1);
+        System.out.println("valB2: " + valB2);
+        System.out.println("valB3: " + valB3);
+        System.out.println("valB4: " + valB4);
+        System.out.println("valB5: " + valB5);
+        System.out.println("valB6: " + valB6);
+        System.out.println("valB7: " + valB7);
+        System.out.println("valB8: " + valB8);
+
+    }
+
+    private static int getValue(String variable, List<Integer> shuffledIndices, Map<String, Integer> variableValues) {
+        int index;
+        do {
+            index = shuffledIndices.remove(0);
+        } while (variableValues.containsValue(index));
+
+        variableValues.put(variable, index);
+        return index;
     }
 
     private void handleButtonClick(JButton button, int numberBtn, int valueMatch) {
@@ -61,7 +128,6 @@ public class MatchGame extends javax.swing.JFrame {
         matchController.setNumberBtn(numberBtn);
         matchController.setValueMatch(valueMatch);
         imageController.getMatch().add(matchController);
-    
         imageController.paintMatch();
         imageController.match();
     }
@@ -407,12 +473,16 @@ public class MatchGame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn02MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn02MouseClicked
-        handleButtonClick(btn02, 2, next.get(1));
+        Collections.shuffle(shuffledIndices);
+
+        handleButtonClick(btn02, 2, next.get(valB2));
+        System.out.println("valB  "+valB2); 
 
     }//GEN-LAST:event_btn02MouseClicked
 
     private void btn03MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn03MouseClicked
-        handleButtonClick(btn03, 3, next.get(2));
+        handleButtonClick(btn03, 3, next.get(valB3));
+        System.out.println("valB3  "+valB3);  
     }//GEN-LAST:event_btn03MouseClicked
 
     private void btn03ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn03ActionPerformed
@@ -420,27 +490,33 @@ public class MatchGame extends javax.swing.JFrame {
     }//GEN-LAST:event_btn03ActionPerformed
 
     private void btn04MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn04MouseClicked
-        handleButtonClick(btn04, 4, next.get(3));
+        handleButtonClick(btn04, 4, next.get(valB4));
+        System.out.println("valB4  "+valB4);
     }//GEN-LAST:event_btn04MouseClicked
 
     private void btn05MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn05MouseClicked
-        handleButtonClick(btn05, 5, next.get(4));
+        handleButtonClick(btn05, 5, next.get(valB5));
+        System.out.println("valB5  " +valB5);
     }//GEN-LAST:event_btn05MouseClicked
 
     private void btn06MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn06MouseClicked
-        handleButtonClick(btn06, 6, next.get(5));
+        handleButtonClick(btn06, 6, next.get(valB6));
+        System.out.println("valB6  " +valB6);
     }//GEN-LAST:event_btn06MouseClicked
 
     private void btn07MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn07MouseClicked
-        handleButtonClick(btn07, 7, next.get(6));
+        handleButtonClick(btn07, 7, next.get(valB7));
+        System.out.println("valB7  " +valB7);
     }//GEN-LAST:event_btn07MouseClicked
 
     private void btn08MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn08MouseClicked
-        handleButtonClick(btn08, 8, next.get(7));
+        handleButtonClick(btn08, 8, next.get(valB8));
+        System.out.println("valB8  " +valB8);
     }//GEN-LAST:event_btn08MouseClicked
 
     private void btn01MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn01MouseClicked
-        handleButtonClick(btn01, 1, next.get(0));
+        handleButtonClick(btn01, 1, next.get(valB1));
+        System.out.println("valB1  " +valB1);
     }//GEN-LAST:event_btn01MouseClicked
 
     private void leaderBoardButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leaderBoardButton1ActionPerformed
@@ -452,17 +528,12 @@ public class MatchGame extends javax.swing.JFrame {
     }//GEN-LAST:event_ProfileButtonActionPerformed
 
     private void ResetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetButtonActionPerformed
-        // TODO add your handling code here:
+        resetGame();
     }//GEN-LAST:event_ResetButtonActionPerformed
 
     private void btn01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn01ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn01ActionPerformed
-
-    
-
-
-
 
     /**
      * @param args the command line arguments
