@@ -20,6 +20,7 @@ import java.util.HashMap;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.text.Utilities;
+import com.mycompany.memorygame.Controler.Timer;
 
 import com.mycompany.memorygame.Controler.ImageController;
 import com.mycompany.memorygame.Controler.MatchController;
@@ -47,6 +48,8 @@ public class MatchGame extends javax.swing.JFrame {
 
     int valB1 = 0, valB2 = 1, valB3 = 2, valB4 = 3, valB5 = 4, valB6 = 5, valB7 = 6, valB8 = 7;
 
+    boolean run = true;
+
     public MatchGame(String user) {
         initComponents();
 
@@ -59,7 +62,9 @@ public class MatchGame extends javax.swing.JFrame {
     }
 
     public void resetGame() {
+        run = true;
         imageController.reset();
+        Timer.reset();
     }
 
     public void shuffleValues() {
@@ -113,13 +118,16 @@ public class MatchGame extends javax.swing.JFrame {
     }
 
     private void handleButtonClick(JButton button, int numberBtn, int valueMatch) {
+        if (run == true){
+            Timer.start();
+        }
         // Check if the button has already been matched
         for (MatchController matchedController : imageController.getMatch()) {
             if (matchedController.getBtn() == button) {
                 return; // Ignore the click if the button has already been matched
             }
         }
-
+        run = false;
         MatchController matchController = new MatchController();
         matchController.setBtn(button);
         matchController.setNumberBtn(numberBtn);
@@ -130,7 +138,7 @@ public class MatchGame extends javax.swing.JFrame {
     }
 
     public void setShowTime(String text) {
-        this.ShowTime.setText(text);
+        this.timerLabel.setText(text);
     }
 
     public void setRound(int round) {
@@ -207,8 +215,8 @@ public class MatchGame extends javax.swing.JFrame {
         btn07 = new javax.swing.JButton();
         btn08 = new javax.swing.JButton();
         btn01 = new javax.swing.JButton();
-        TimerL = new javax.swing.JLabel();
-        ShowTime = new javax.swing.JLabel();
+        Timer = new Timer();
+        timerLabel = new javax.swing.JLabel();
         ScoreP = new javax.swing.JLabel();
         ShowScore = new javax.swing.JLabel();
         leaderBoardButton1 = new javax.swing.JButton();
@@ -381,16 +389,17 @@ public class MatchGame extends javax.swing.JFrame {
                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
-        TimerL.setBackground(new java.awt.Color(0, 0, 0));
-        TimerL.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        TimerL.setText("Timer:");
-        TimerL.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        ShowTime.setBackground(new java.awt.Color(0, 0, 0));
-        ShowTime.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        ShowTime.setText("01.00");
-        ShowTime.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        timerLabel.setBackground(new java.awt.Color(0, 0, 0));
+        timerLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        timerLabel.setText("Timer :");
+        timerLabel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        Timer.setBackground(new java.awt.Color(0, 0, 0));
+        Timer.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Timer.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                                
+                                
         ScoreP.setBackground(new java.awt.Color(0, 0, 0));
         ScoreP.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ScoreP.setText("Score:");
@@ -454,12 +463,13 @@ public class MatchGame extends javax.swing.JFrame {
                                                         .addComponent(ShowScore, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(TimerL, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        .addComponent(timerLabel, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(Timer, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addPreferredGap(
                                                                 javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(ShowTime, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                ))
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(layout.createSequentialGroup()
                                                         .addGap(29, 29, 29)
@@ -482,8 +492,8 @@ public class MatchGame extends javax.swing.JFrame {
                                 .addGroup(layout.createSequentialGroup()
                                         .addGap(10, 10, 10)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(TimerL)
-                                                .addComponent(ShowTime)
+                                                .addComponent(timerLabel)
+                                                .addComponent(Timer)
                                                 .addComponent(leaderBoardButton1))
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(layout.createSequentialGroup()
@@ -588,8 +598,8 @@ public class MatchGame extends javax.swing.JFrame {
     private javax.swing.JButton ResetButton;
     private javax.swing.JLabel ScoreP;
     private javax.swing.JLabel ShowScore;
-    private javax.swing.JLabel ShowTime;
-    private javax.swing.JLabel TimerL;
+    private javax.swing.JLabel timerLabel;
+    public static Timer Timer;
     public static javax.swing.JButton btn01;
     public static javax.swing.JButton btn02;
     public static javax.swing.JButton btn03;

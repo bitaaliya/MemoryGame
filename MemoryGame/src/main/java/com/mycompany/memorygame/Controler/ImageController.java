@@ -94,6 +94,7 @@ public class ImageController {
     // METODE DI MANA GAMBAR SUDAH MEMBUAT MATCH
     public void setStartImageMatch() {
         if (ok.size() == 8) {
+            MatchGame.Timer.reset();
             JOptionPane.showMessageDialog(null, "Win Player");
 
             for (int i = 0; i < ok.size(); i++) {
