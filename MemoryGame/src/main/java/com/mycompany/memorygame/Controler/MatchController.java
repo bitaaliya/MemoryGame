@@ -13,7 +13,7 @@ import javax.swing.JButton;
  */
 public class MatchController {
 
-    private int numberBtn;
+    private int numberBtn; 
     private JButton btn;
     private int valueMatch;
 

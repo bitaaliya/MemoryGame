@@ -35,7 +35,7 @@ public class Timer extends JLabel implements Runnable {
                 if (seconds == 0) {
                     reset();
                     isTimesUp = true;
-                    break;
+                    break; 
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
