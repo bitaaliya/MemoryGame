@@ -10,7 +10,7 @@ public class Timer extends JLabel implements Runnable {
 
     public static int secondCounter = 0;
     private Thread t = new Thread(this);
-    public Timer(){
+    public Timer(){ 
         super("01:00");
     }
 
