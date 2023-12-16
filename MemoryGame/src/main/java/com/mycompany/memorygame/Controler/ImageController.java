@@ -20,6 +20,8 @@ public class ImageController {
     private List<MatchController> match = new ArrayList<>();
     private List<MatchController> ok = new ArrayList<>();
     private int totalElements = 8;
+    private int score;
+    private int round;
 
     public void setMatchGame(MatchGame matchGame) {
         this.matchGame = matchGame;
@@ -94,7 +96,19 @@ public class ImageController {
     // METODE DI MANA GAMBAR SUDAH MEMBUAT MATCH
     public void setStartImageMatch() {
         if (ok.size() == 8) {
-            JOptionPane.showMessageDialog(null, "Win Player");
+            MatchGame.Timer.hitungScore();
+            MatchGame.Timer.getScore();
+            score = MatchGame.Timer.getScore();
+            System.out.println("Skor Anda: " + score);
+            matchGame.setShowScore(score);
+            matchGame.setHighScore(score);
+            MatchGame.Timer.reset(); 
+            round++;
+            System.out.println("Round: " + round);
+            matchGame.setRound(round);
+            
+            // Menampilkan notifikasi "Win Player" bersamaan dengan skor
+            JOptionPane.showMessageDialog(null, "Win Player\nSkor Anda: " + MatchGame.Timer.getScore());
 
             for (int i = 0; i < ok.size(); i++) {
                 setImages(ok.get(i).getBtn(), ok.get(i).getValueMatch());
@@ -119,6 +133,7 @@ public class ImageController {
 
     public void reset() {
         getMatch().clear();
+        this.score = 0;
         matchGame.shuffleValues();
         for (int i = 0; i < ok.size(); i++) {
             setImages(ok.get(i).getBtn(), ok.get(i).getValueMatch());
@@ -132,6 +147,7 @@ public class ImageController {
             setImages(ok.get(i).getBtn(), ok.get(i).getValueMatch());
             ok.get(i).getBtn().setEnabled(false);
         }
+        
         setStartImageMatch();
 
     }

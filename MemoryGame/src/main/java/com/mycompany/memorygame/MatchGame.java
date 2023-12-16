@@ -7,7 +7,7 @@ package com.mycompany.memorygame;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
+import java.sql.PreparedStatement; 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import java.util.HashMap;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.text.Utilities;
-
+import com.mycompany.memorygame.Controler.Timer;
 import com.mycompany.memorygame.Controler.ImageController;
 import com.mycompany.memorygame.Controler.MatchController;
 
@@ -31,11 +31,11 @@ import com.mycompany.memorygame.Controler.MatchController;
 public class MatchGame extends javax.swing.JFrame {
 
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost/modul4";
+    static final String DB_URL = "jdbc:mysql://localhost/memorygame";
     static final String USER = "root";
     static final String PASS = "";
     protected String user;
-    public static String tempUser = "asd";
+    // public static String tempUser = "asd";
 
     int clic = 0;
 
@@ -47,10 +47,13 @@ public class MatchGame extends javax.swing.JFrame {
 
     int valB1 = 0, valB2 = 1, valB3 = 2, valB4 = 3, valB5 = 4, valB6 = 5, valB7 = 6, valB8 = 7;
 
+    boolean run = true;
+
     public MatchGame(String user) {
         initComponents();
 
         this.setLocationRelativeTo(this);
+        this.user = user;
         imageController = new ImageController();
         imageController.setMatchGame(this);
         shuffleValues();
@@ -59,7 +62,9 @@ public class MatchGame extends javax.swing.JFrame {
     }
 
     public void resetGame() {
+        run = true;
         imageController.reset();
+        Timer.reset();
     }
 
     public void shuffleValues() {
@@ -113,13 +118,16 @@ public class MatchGame extends javax.swing.JFrame {
     }
 
     private void handleButtonClick(JButton button, int numberBtn, int valueMatch) {
+        if (run == true){
+            Timer.start();
+        }
         // Check if the button has already been matched
         for (MatchController matchedController : imageController.getMatch()) {
             if (matchedController.getBtn() == button) {
                 return; // Ignore the click if the button has already been matched
             }
         }
-
+        run = false;
         MatchController matchController = new MatchController();
         matchController.setBtn(button);
         matchController.setNumberBtn(numberBtn);
@@ -130,7 +138,7 @@ public class MatchGame extends javax.swing.JFrame {
     }
 
     public void setShowTime(String text) {
-        this.ShowTime.setText(text);
+        this.timerLabel.setText(text);
     }
 
     public void setRound(int round) {
@@ -139,7 +147,7 @@ public class MatchGame extends javax.swing.JFrame {
             String sql = "UPDATE userid SET round = round + ? WHERE username = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, round);
-            pstmt.setString(2, tempUser);
+            pstmt.setString(2, user);
 
             pstmt.executeUpdate();
 
@@ -159,7 +167,7 @@ public class MatchGame extends javax.swing.JFrame {
             String selectSql = "SELECT score FROM userid WHERE username = ?";
             try (PreparedStatement selectStmt = conn.prepareStatement(selectSql)) {
 
-                selectStmt.setString(1, tempUser);
+                selectStmt.setString(1, user);
 
                 ResultSet resultSet = selectStmt.executeQuery();
 
@@ -170,7 +178,7 @@ public class MatchGame extends javax.swing.JFrame {
                         String updateSql = "UPDATE userid SET score = ? WHERE username = ?";
                         try (PreparedStatement updateStmt = conn.prepareStatement(updateSql)) {
                             updateStmt.setInt(1, score);
-                            updateStmt.setString(2, tempUser);
+                            updateStmt.setString(2, user);
 
                             updateStmt.executeUpdate();
 
@@ -182,6 +190,11 @@ public class MatchGame extends javax.swing.JFrame {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public void setShowScore() {
+        int skor = MatchGame.Timer.getScore();
+        System.out.println("Skor Anda: " + skor);
     }
 
     public void setShowScore(int score) {
@@ -207,8 +220,8 @@ public class MatchGame extends javax.swing.JFrame {
         btn07 = new javax.swing.JButton();
         btn08 = new javax.swing.JButton();
         btn01 = new javax.swing.JButton();
-        TimerL = new javax.swing.JLabel();
-        ShowTime = new javax.swing.JLabel();
+        Timer = new Timer();
+        timerLabel = new javax.swing.JLabel();
         ScoreP = new javax.swing.JLabel();
         ShowScore = new javax.swing.JLabel();
         leaderBoardButton1 = new javax.swing.JButton();
@@ -381,16 +394,17 @@ public class MatchGame extends javax.swing.JFrame {
                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
-        TimerL.setBackground(new java.awt.Color(0, 0, 0));
-        TimerL.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        TimerL.setText("Timer:");
-        TimerL.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        ShowTime.setBackground(new java.awt.Color(0, 0, 0));
-        ShowTime.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        ShowTime.setText("01.00");
-        ShowTime.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        timerLabel.setBackground(new java.awt.Color(0, 0, 0));
+        timerLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        timerLabel.setText("Timer :");
+        timerLabel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        Timer.setBackground(new java.awt.Color(0, 0, 0));
+        Timer.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Timer.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                                
+                                
         ScoreP.setBackground(new java.awt.Color(0, 0, 0));
         ScoreP.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ScoreP.setText("Score:");
@@ -454,12 +468,13 @@ public class MatchGame extends javax.swing.JFrame {
                                                         .addComponent(ShowScore, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(TimerL, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        .addComponent(timerLabel, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(Timer, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addPreferredGap(
                                                                 javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(ShowTime, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                ))
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(layout.createSequentialGroup()
                                                         .addGap(29, 29, 29)
@@ -482,8 +497,8 @@ public class MatchGame extends javax.swing.JFrame {
                                 .addGroup(layout.createSequentialGroup()
                                         .addGap(10, 10, 10)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(TimerL)
-                                                .addComponent(ShowTime)
+                                                .addComponent(timerLabel)
+                                                .addComponent(Timer)
                                                 .addComponent(leaderBoardButton1))
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(layout.createSequentialGroup()
@@ -555,11 +570,12 @@ public class MatchGame extends javax.swing.JFrame {
     }// GEN-LAST:event_btn01MouseClicked
 
     private void leaderBoardButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_leaderBoardButton1ActionPerformed
-        // TODO add your handling code here:
+        new LeaderBoard().setVisible(true);
     }// GEN-LAST:event_leaderBoardButton1ActionPerformed
 
     private void ProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ProfileButtonActionPerformed
-        // TODO add your handling code here:
+        new Profile(user).setVisible(true);
+        
     }// GEN-LAST:event_ProfileButtonActionPerformed
 
     private void ResetButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ResetButtonActionPerformed
@@ -567,20 +583,20 @@ public class MatchGame extends javax.swing.JFrame {
     }// GEN-LAST:event_ResetButtonActionPerformed
 
     private void btn01ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btn01ActionPerformed
-        // TODO add your handling code here:
+        
     }// GEN-LAST:event_btn01ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    // public static void main(String args[]) {
 
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MatchGame(tempUser).setVisible(true);
-            }
-        });
-    }
+    //     java.awt.EventQueue.invokeLater(new Runnable() {
+    //         public void run() {
+    //             new MatchGame(tempUser).setVisible(true);
+    //         }
+    //     });
+    // }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MatchPanle;
@@ -588,8 +604,8 @@ public class MatchGame extends javax.swing.JFrame {
     private javax.swing.JButton ResetButton;
     private javax.swing.JLabel ScoreP;
     private javax.swing.JLabel ShowScore;
-    private javax.swing.JLabel ShowTime;
-    private javax.swing.JLabel TimerL;
+    private javax.swing.JLabel timerLabel;
+    public static Timer Timer;
     public static javax.swing.JButton btn01;
     public static javax.swing.JButton btn02;
     public static javax.swing.JButton btn03;

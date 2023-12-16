@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  */
 public class LeaderBoard extends javax.swing.JFrame {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost/modul4";
+    static final String DB_URL = "jdbc:mysql://localhost/memorygame";
     static final String USER = "root";
     static final String PASS = "";
 
@@ -27,6 +27,8 @@ public class LeaderBoard extends javax.swing.JFrame {
      */
     public LeaderBoard() {
         initComponents();
+
+        this.setLocationRelativeTo(this);
         leaderboardModel = new DefaultListModel<>();
         leaderboard.setModel(leaderboardModel);
         updateLeaderboard();
@@ -122,7 +124,7 @@ public class LeaderBoard extends javax.swing.JFrame {
             while (rs.next()) {
                 String playerName = rs.getString("username");
                 int playerScore = rs.getInt("score");
-                String leaderboardEntry = playerName + " " + playerScore + " WPM";
+                String leaderboardEntry = playerName + " " + playerScore;
                 leaderboardModel.addElement(leaderboardEntry);
             }
 
