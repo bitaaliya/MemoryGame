@@ -95,6 +95,7 @@ public class ImageController {
 
     // METODE DI MANA GAMBAR SUDAH MEMBUAT MATCH
     public void setStartImageMatch() {
+        round = 0;
         if (ok.size() == 8) {
             MatchGame.Timer.hitungScore();
             MatchGame.Timer.getScore();
