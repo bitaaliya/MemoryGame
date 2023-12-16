@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
  */
 public class Login extends javax.swing.JFrame {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost/modul4";
+    static final String DB_URL = "jdbc:mysql://localhost/memorygame";
     static final String USER = "root";
     static final String PASS = "";
     protected String user;
@@ -30,6 +30,9 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+
+        this.setLocationRelativeTo(this);
+
     }
 
     /**
@@ -182,8 +185,10 @@ public class Login extends javax.swing.JFrame {
                         JOptionPane.INFORMATION_MESSAGE);
                 user = enterUser.getText();
                 System.out.println(user);
+                new MatchGame(user).setVisible(true);
+                // new Profile(user).setVisible(true);
 
-                // new GameFrame(user).setVisible(true);
+                
             } else if (!resultSet.next()) {
                 JOptionPane.showMessageDialog(new JFrame(), "Login Gagal", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
