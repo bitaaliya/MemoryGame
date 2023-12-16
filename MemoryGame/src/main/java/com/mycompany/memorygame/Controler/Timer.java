@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 import javax.swing.*;
 
-public class Timer extends JLabel implements Runnable {
+public class Timer extends JLabel implements Runnable,utility {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
     static final String DB_URL = "jdbc:mysql://localhost/memorygame";
     static final String USER = "root";
@@ -97,7 +97,7 @@ public class Timer extends JLabel implements Runnable {
         }
     }
     }
-
+    @Override
     public void setSeconds(int seconds) {
         this.seconds = seconds;
     }
@@ -124,4 +124,6 @@ public class Timer extends JLabel implements Runnable {
         seconds = 60;
         setText("01:00");
     }
+
+ 
 }

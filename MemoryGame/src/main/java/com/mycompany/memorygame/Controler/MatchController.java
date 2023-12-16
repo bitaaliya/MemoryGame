@@ -11,21 +11,25 @@ import javax.swing.JButton;
  *
  * Penulis: MSBENAVIDES
  */
-public class MatchController {
+public class MatchController extends match {
 
     private int numberBtn;
     private JButton btn;
     private int valueMatch;
 
     public MatchController() {
+
+
     }
 
     public MatchController(int numberBtn, JButton btn, int valueMatch) {
+
         this.numberBtn = numberBtn;
         this.btn = btn;
         this.valueMatch = valueMatch;
-    }
 
+    }
+    
     public int getNumberBtn() {
         return numberBtn;
     }
@@ -50,13 +54,5 @@ public class MatchController {
         this.valueMatch = valueMatch;
     }
 
-    @Override
-    public String toString() {
-        return "Match{" + "numberBtn=" + numberBtn + ", btn=" + btn + ", valueMatch=" + valueMatch + '}';
-    }
-
-    public void end() {
-
-    }
 
 }

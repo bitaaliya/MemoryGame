@@ -107,6 +107,7 @@ public class ImageController {
             round++;
             System.out.println("Round: " + round);
             matchGame.setRound(round);
+            reset();
             
             // Menampilkan notifikasi "Win Player" bersamaan dengan skor
             JOptionPane.showMessageDialog(null, "Win Player\nSkor Anda: " + MatchGame.Timer.getScore());
