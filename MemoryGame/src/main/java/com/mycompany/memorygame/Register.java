@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
  */
 public class Register extends javax.swing.JFrame {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost/modul4";
+    static final String DB_URL = "jdbc:mysql://localhost/memorygame";
     static final String USER = "root";
     static final String PASS = "";
 
@@ -29,6 +29,9 @@ public class Register extends javax.swing.JFrame {
      */
     public Register() {
         initComponents();
+
+        this.setLocationRelativeTo(this);
+
     }
 
     /**

@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class Profile extends javax.swing.JFrame {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost/modul4";
+    static final String DB_URL = "jdbc:mysql://localhost/memorygame";
     static final String USER = "root";
     static final String PASS = "";
     private String loggedInUsername;
@@ -26,6 +26,8 @@ public class Profile extends javax.swing.JFrame {
      */
     public Profile(String loggedInUsername) {
         initComponents();
+
+        this.setLocationRelativeTo(this);
         this.loggedInUsername = loggedInUsername;
         updateProfile();
 
