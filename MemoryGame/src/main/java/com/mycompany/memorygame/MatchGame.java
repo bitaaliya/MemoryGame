@@ -59,6 +59,9 @@ public class MatchGame extends javax.swing.JFrame {
         shuffleValues();
         imageController.setStartImage();
 
+        Thread imageControllerThread = new Thread(imageController);
+        imageControllerThread.start();
+
     }
 
     public void resetGame() {
@@ -220,7 +223,7 @@ public class MatchGame extends javax.swing.JFrame {
         btn07 = new javax.swing.JButton();
         btn08 = new javax.swing.JButton();
         btn01 = new javax.swing.JButton();
-        Timer = new Timer();
+        Timer = new Timer(this);
         timerLabel = new javax.swing.JLabel();
         ScoreP = new javax.swing.JLabel();
         ShowScore = new javax.swing.JLabel();

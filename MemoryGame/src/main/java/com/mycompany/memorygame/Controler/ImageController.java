@@ -3,6 +3,7 @@ package com.mycompany.memorygame.Controler;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,16 +14,39 @@ import java.util.Random;
 import com.mycompany.memorygame.MatchGame;
 import com.mycompany.memorygame.Controler.MatchController;
 
-public class ImageController {
+public class ImageController implements Runnable {
 
     private MatchGame matchGame;
 
     private List<MatchController> match = new ArrayList<>();
-    private List<MatchController> ok = new ArrayList<>();
+    protected List<MatchController> ok = new ArrayList<>();
     private Timer timer;
     private int totalElements = 8;
     private int score;
-    private int round;
+    protected int round;
+    private volatile boolean isRunning = true;
+
+
+    @Override
+    public void run() {
+        while (isRunning) {
+
+
+            try {
+                Thread.sleep(1000); 
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            SwingUtilities.invokeLater(() -> {
+                MatchGame.Timer.hitungScore();
+
+            });
+        }
+    }
+
+    public void stopRunning() {
+        isRunning = false;
+    }
 
     public void setMatchGame(MatchGame matchGame) {
         this.matchGame = matchGame;
@@ -106,7 +130,7 @@ public class ImageController {
             System.out.println("Skor Anda: " + score);
             matchGame.setShowScore(score);
             matchGame.setHighScore(score);
-            matchGame.resetGame(); // reset
+            matchGame.resetGame();
             MatchGame.Timer.reset(); 
             round++;
             System.out.println("Round: " + round);

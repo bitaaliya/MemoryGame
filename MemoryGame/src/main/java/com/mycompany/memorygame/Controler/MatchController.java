@@ -11,7 +11,7 @@ import javax.swing.JButton;
  *
  * Penulis: MSBENAVIDES
  */
-public class MatchController extends match {
+public class MatchController  extends match  {
 
     private int numberBtn;
     private JButton btn;
