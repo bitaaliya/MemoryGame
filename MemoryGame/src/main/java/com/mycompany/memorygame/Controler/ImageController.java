@@ -51,7 +51,6 @@ public class ImageController {
         all.addAll(firstSet);
         all.addAll(secondSet);
 
-        // Shuffle the combined list
         Collections.shuffle(all);
 
         return all;
@@ -93,23 +92,22 @@ public class ImageController {
         }
     }
 
-    // METODE DI MANA GAMBAR SUDAH MEMBUAT MATCH
     public void setStartImageMatch() {
         if (ok.size() == 8) {
             MatchGame.Timer.hitungScore();
-            MatchGame.Timer.getScore();
+            MatchGame.Timer.reset(); 
             score = MatchGame.Timer.getScore();
             System.out.println("Skor Anda: " + score);
             matchGame.setShowScore(score);
             matchGame.setHighScore(score);
+            matchGame.resetGame();
             MatchGame.Timer.reset(); 
             round++;
             System.out.println("Round: " + round);
             matchGame.setRound(round);
-            
-            // Menampilkan notifikasi "Win Player" bersamaan dengan skor
-            JOptionPane.showMessageDialog(null, "Win Player\nSkor Anda: " + MatchGame.Timer.getScore());
+            reset();
 
+            JOptionPane.showMessageDialog(null, "Win Player\nSkor Anda: " + MatchGame.Timer.getScore());
             for (int i = 0; i < ok.size(); i++) {
                 setImages(ok.get(i).getBtn(), ok.get(i).getValueMatch());
                 ok.get(i).getBtn().setEnabled(true);
@@ -122,9 +120,8 @@ public class ImageController {
             setImages(ok.get(i).getBtn(), ok.get(i).getValueMatch());
             ok.get(i).getBtn().setEnabled(false);
         }
-    }
+    }    
 
-    // METODE YANG MENGONTROL EKSEKUSI
     public void filpBack() {
         rowsTableAll();
         setStartImage();
@@ -147,12 +144,10 @@ public class ImageController {
             setImages(ok.get(i).getBtn(), ok.get(i).getValueMatch());
             ok.get(i).getBtn().setEnabled(false);
         }
-        
         setStartImageMatch();
 
     }
 
-    // METODE PEMADAN
     public void match() {
         if (getMatch().size() == 2) {
             if (getMatch().get(0).getNumberBtn() != 0 && getMatch().get(1).getNumberBtn() != 0) {
@@ -194,5 +189,4 @@ public class ImageController {
     public void setMatch(List<MatchController> match) {
         this.match = match;
     }
-
 }

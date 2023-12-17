@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 import javax.swing.*;
 
-public class Timer extends JLabel implements Runnable {
+public class Timer extends JLabel implements Runnable,utility {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
     static final String DB_URL = "jdbc:mysql://localhost/memorygame";
     static final String USER = "root";
@@ -21,8 +21,7 @@ public class Timer extends JLabel implements Runnable {
     public static int secondCounter = 0;
     private Thread t = new Thread(this);
 
-    private int score = 0; // Menambahkan variabel score
-    private static final int WAKTU_AWAL = 60;
+    private int score = 0;
     private static final int SCORE_PER_GAME = 8;
 
     public Timer() {
@@ -32,7 +31,7 @@ public class Timer extends JLabel implements Runnable {
     public void start() {
         isTimesUp = false;
         secondCounter = 0;
-        score = 0; // Reset score saat timer dimulai
+        score = 0; 
         t.start();
     }
 
@@ -44,12 +43,11 @@ public class Timer extends JLabel implements Runnable {
                 Thread.sleep(1000);
                 seconds--;
                 secondCounter++;
-                // System.out.println(secondCounter+" detik");
                 minutes = seconds / 60;
                 String time = String.format("%02d:%02d", getMinutes(), getSeconds() % 60);
                 setText(time);
                 if (seconds == 0) {
-                    hitungScore(); // Hitung skor saat waktu habis
+                    hitungScore();
                     reset();
                     isTimesUp = true;
                     break;
@@ -63,7 +61,6 @@ public class Timer extends JLabel implements Runnable {
     }
 
     void hitungScore() {
-        // Hitung skor berdasarkan rumus yang telah dibahas sebelumnya
         score = SCORE_PER_GAME * seconds;
         System.out.println("Skor Anda: " + score);
     }
@@ -76,7 +73,7 @@ public class Timer extends JLabel implements Runnable {
         Class.forName("com.mysql.cj.jdbc.Driver");
         conn = DriverManager.getConnection("jdbc:mysql://localhost/memorygame", "root", "");
 
-        String sql = "INSERT INTO userid(username, pass, score, round) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO player(username, pass, score, round) VALUES (?, ?, ?, ?)";
         pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, username);
         pstmt.setString(2, PASS);

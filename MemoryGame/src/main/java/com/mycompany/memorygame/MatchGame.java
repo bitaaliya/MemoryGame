@@ -21,6 +21,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.text.Utilities;
 import com.mycompany.memorygame.Controler.Timer;
+
 import com.mycompany.memorygame.Controler.ImageController;
 import com.mycompany.memorygame.Controler.MatchController;
 
@@ -144,7 +145,7 @@ public class MatchGame extends javax.swing.JFrame {
     public void setRound(int round) {
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
-            String sql = "UPDATE userid SET round = round + ? WHERE username = ?";
+            String sql = "UPDATE player SET round = round + ? WHERE username = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, round);
             pstmt.setString(2, user);
@@ -164,7 +165,7 @@ public class MatchGame extends javax.swing.JFrame {
 
             Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
 
-            String selectSql = "SELECT score FROM userid WHERE username = ?";
+            String selectSql = "SELECT score FROM player WHERE username = ?";
             try (PreparedStatement selectStmt = conn.prepareStatement(selectSql)) {
 
                 selectStmt.setString(1, user);
@@ -175,7 +176,7 @@ public class MatchGame extends javax.swing.JFrame {
                     int currentHighScore = resultSet.getInt("score");
 
                     if (score > currentHighScore) {
-                        String updateSql = "UPDATE userid SET score = ? WHERE username = ?";
+                        String updateSql = "UPDATE player SET score = ? WHERE username = ?";
                         try (PreparedStatement updateStmt = conn.prepareStatement(updateSql)) {
                             updateStmt.setInt(1, score);
                             updateStmt.setString(2, user);
@@ -193,8 +194,8 @@ public class MatchGame extends javax.swing.JFrame {
     }
 
     public void setShowScore() {
-        int skor = MatchGame.Timer.getScore();
-        System.out.println("Skor Anda: " + skor);
+        int score = MatchGame.Timer.getScore();
+        System.out.println("Score Anda: " + score);
     }
 
     public void setShowScore(int score) {
@@ -574,29 +575,17 @@ public class MatchGame extends javax.swing.JFrame {
     }// GEN-LAST:event_leaderBoardButton1ActionPerformed
 
     private void ProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ProfileButtonActionPerformed
+        // Profile.updateProfile();
         new Profile(user).setVisible(true);
-        
-    }// GEN-LAST:event_ProfileButtonActionPerformed
+    }
 
     private void ResetButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ResetButtonActionPerformed
         resetGame();
     }// GEN-LAST:event_ResetButtonActionPerformed
 
     private void btn01ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btn01ActionPerformed
-        
+        // TODO add your handling code here:
     }// GEN-LAST:event_btn01ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    // public static void main(String args[]) {
-
-    //     java.awt.EventQueue.invokeLater(new Runnable() {
-    //         public void run() {
-    //             new MatchGame(tempUser).setVisible(true);
-    //         }
-    //     });
-    // }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MatchPanle;
