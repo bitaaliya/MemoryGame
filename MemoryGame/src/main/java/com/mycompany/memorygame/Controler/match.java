@@ -8,7 +8,6 @@ public abstract class match {
         
     }
 
-
     public abstract void setNumberBtn(int numberBtn);
 
     public abstract int getNumberBtn();

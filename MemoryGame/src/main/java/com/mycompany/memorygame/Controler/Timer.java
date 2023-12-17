@@ -59,10 +59,9 @@ public class Timer extends JLabel implements Runnable,utility {
                     reset();
                     this.matchGame.setShowScore(getScore());
                     this.matchGame.setHighScore(getScore());
+                    this.matchGame.resetGame();
                     JOptionPane.showMessageDialog(null, "Win Player\nSkor Anda: " + getScore());
 
-                    this.matchGame.resetGame();
-                    // imageController.setStartImage();
                     isTimesUp = true;
                     break;
                 }
