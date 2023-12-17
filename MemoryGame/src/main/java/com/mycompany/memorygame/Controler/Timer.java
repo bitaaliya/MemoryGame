@@ -23,13 +23,15 @@ public class Timer extends JLabel implements Runnable,utility {
     public static int secondCounter = 0;
     private Thread t = new Thread(this);
     private MatchGame matchGame;
+    private ImageController imageController;
 
     private int score = 0; // Menambahkan variabel score
     private static final int WAKTU_AWAL = 60;
     private static final int SCORE_PER_GAME = 8;
 
-    public Timer() {
+    public Timer(MatchGame matchGame) {
         super("01:00");
+        this.matchGame = matchGame;
     }
 
     public void start() {
@@ -54,6 +56,8 @@ public class Timer extends JLabel implements Runnable,utility {
                 if (seconds == 0) {
                     hitungScore(); // Hitung skor saat waktu habis
                     reset();
+                    this.matchGame.resetGame();
+                    // imageController.setStartImage();
                     isTimesUp = true;
                     break;
                 }
@@ -123,6 +127,7 @@ public class Timer extends JLabel implements Runnable,utility {
     public void reset() {
         
         t.interrupt();
+        
         isTimesUp = false;
         t = new Thread(this);
         seconds = 60;
