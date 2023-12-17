@@ -144,7 +144,7 @@ public class MatchGame extends javax.swing.JFrame {
     public void setRound(int round) {
         try {
             Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
-            String sql = "UPDATE userid SET round = round + ? WHERE username = ?";
+            String sql = "UPDATE player SET round = round + ? WHERE username = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, round);
             pstmt.setString(2, user);
@@ -164,7 +164,7 @@ public class MatchGame extends javax.swing.JFrame {
 
             Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
 
-            String selectSql = "SELECT score FROM userid WHERE username = ?";
+            String selectSql = "SELECT score FROM player WHERE username = ?";
             try (PreparedStatement selectStmt = conn.prepareStatement(selectSql)) {
 
                 selectStmt.setString(1, user);
@@ -175,7 +175,7 @@ public class MatchGame extends javax.swing.JFrame {
                     int currentHighScore = resultSet.getInt("score");
 
                     if (score > currentHighScore) {
-                        String updateSql = "UPDATE userid SET score = ? WHERE username = ?";
+                        String updateSql = "UPDATE player SET score = ? WHERE username = ?";
                         try (PreparedStatement updateStmt = conn.prepareStatement(updateSql)) {
                             updateStmt.setInt(1, score);
                             updateStmt.setString(2, user);
@@ -416,7 +416,7 @@ public class MatchGame extends javax.swing.JFrame {
         ShowScore.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         leaderBoardButton1.setBackground(new java.awt.Color(255, 51, 51));
-        leaderBoardButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        leaderBoardButton1.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
         leaderBoardButton1.setForeground(new java.awt.Color(255, 255, 255));
         leaderBoardButton1.setText("Leader Board");
         leaderBoardButton1.addActionListener(new java.awt.event.ActionListener() {

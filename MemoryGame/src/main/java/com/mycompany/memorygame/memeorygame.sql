@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 25 Nov 2023 pada 12.42
+-- Waktu pembuatan: 17 Des 2023 pada 06.02
 -- Versi server: 10.4.25-MariaDB
 -- Versi PHP: 8.1.10
 
@@ -18,16 +18,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `modul4`
+-- Database: `memorygame`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `userid`
+-- Struktur dari tabel `player`
 --
 
-CREATE TABLE `userid` (
+CREATE TABLE `player` (
   `accId` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
   `pass` varchar(20) NOT NULL,
@@ -36,22 +36,23 @@ CREATE TABLE `userid` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `userid`
+-- Dumping data untuk tabel `player`
 --
 
-INSERT INTO `userid` (`accId`, `username`, `pass`, `score`, `round`) VALUES
-(4, 'dsa', 'dsa', 2, 26),
-(5, 'asd', 'asd', 18, 50),
-(6, 'qwe', 'qwe', 24, 13);
+INSERT INTO `player` (`accId`, `username`, `pass`, `score`, `round`) VALUES
+(4, 'dsa', 'dsa', 240, 29),
+(5, 'asd', 'asd', 480, 73),
+(6, 'qwe', 'qwe', 120, 21),
+(7, 'zxc', 'zxc', 360, 1);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `userid`
+-- Indeks untuk tabel `player`
 --
-ALTER TABLE `userid`
+ALTER TABLE `player`
   ADD PRIMARY KEY (`accId`);
 
 --
@@ -59,10 +60,10 @@ ALTER TABLE `userid`
 --
 
 --
--- AUTO_INCREMENT untuk tabel `userid`
+-- AUTO_INCREMENT untuk tabel `player`
 --
-ALTER TABLE `userid`
-  MODIFY `accId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `player`
+  MODIFY `accId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

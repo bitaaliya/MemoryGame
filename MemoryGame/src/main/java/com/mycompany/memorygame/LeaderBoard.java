@@ -116,7 +116,7 @@ public class LeaderBoard extends javax.swing.JFrame {
             Class.forName(JDBC_DRIVER);
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             stmt = conn.createStatement();
-            String sql = "SELECT username, score FROM userid ORDER BY score DESC";
+            String sql = "SELECT username, score FROM player ORDER BY score DESC";
             ResultSet rs = stmt.executeQuery(sql);
 
             leaderboardModel.clear(); // Clear existing data

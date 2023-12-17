@@ -194,7 +194,7 @@ public class Register extends javax.swing.JFrame {
 
     private void RegisterBtn1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_RegisterBtn1ActionPerformed
         try (Connection connection = DriverManager.getConnection(DB_URL, USER, PASS)) {
-            String sql = "INSERT INTO userid(username, pass, score, round) VALUES (?, ?, 0, 0)";
+            String sql = "INSERT INTO player(username, pass, score, round) VALUES (?, ?, 0, 0)";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, enterUser.getText());
             statement.setString(2, enterPass.getText());

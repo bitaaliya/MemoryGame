@@ -113,7 +113,7 @@ public class Profile extends javax.swing.JFrame {
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             stmt = conn.createStatement();
 
-            String sql = "SELECT username, score, round FROM userid WHERE username = ?";
+            String sql = "SELECT username, score, round FROM player WHERE username = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, loggedInUsername);
 

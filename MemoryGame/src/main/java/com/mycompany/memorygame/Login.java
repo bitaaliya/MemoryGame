@@ -173,7 +173,7 @@ public class Login extends javax.swing.JFrame {
 
     private void LoginBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_LoginBtnActionPerformed
         try (Connection connection = DriverManager.getConnection(DB_URL, USER, PASS)) {
-            String sql = "SELECT * FROM userid WHERE username = ? AND pass = ?";
+            String sql = "SELECT * FROM player WHERE username = ? AND pass = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, enterUser.getText());
             statement.setString(2, enterPass.getText());
