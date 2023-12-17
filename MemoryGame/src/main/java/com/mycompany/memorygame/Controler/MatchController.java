@@ -29,30 +29,38 @@ public class MatchController extends match {
         this.valueMatch = valueMatch;
 
     }
-    
+
+
+    @Override    
     public int getNumberBtn() {
         return numberBtn;
     }
 
+    @Override
     public void setNumberBtn(int numberBtn) {
         this.numberBtn = numberBtn;
     }
 
+    @Override
     public JButton getBtn() {
         return btn;
     }
 
+    @Override
     public void setBtn(JButton btn) {
         this.btn = btn;
     }
-
+    @Override
     public int getValueMatch() {
         return valueMatch;
     }
 
+    @Override
     public void setValueMatch(int valueMatch) {
         this.valueMatch = valueMatch;
     }
+
+  
 
 
 }

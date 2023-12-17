@@ -7,6 +7,8 @@ import java.sql.SQLException;
 
 import javax.swing.*;
 
+import com.mycompany.memorygame.MatchGame;
+
 public class Timer extends JLabel implements Runnable,utility {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
     static final String DB_URL = "jdbc:mysql://localhost/memorygame";
@@ -20,6 +22,7 @@ public class Timer extends JLabel implements Runnable,utility {
 
     public static int secondCounter = 0;
     private Thread t = new Thread(this);
+    private MatchGame matchGame;
 
     private int score = 0; // Menambahkan variabel score
     private static final int WAKTU_AWAL = 60;
@@ -118,11 +121,13 @@ public class Timer extends JLabel implements Runnable,utility {
     }    
 
     public void reset() {
+        
         t.interrupt();
         isTimesUp = false;
         t = new Thread(this);
         seconds = 60;
         setText("01:00");
+        // matchGame.resetGame();
     }
 
  

@@ -5,7 +5,9 @@ package com.mycompany.memorygame.Controler;
  */
 public interface utility {
 
-    public void setSeconds(int seconds);
-    public void setMinutes(int minutes);
+    void setSeconds(int seconds);
+    void setMinutes(int minutes);
+    int getSeconds();
+    int getMinutes();
     public void reset();
 } 
