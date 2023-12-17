@@ -19,12 +19,14 @@ public class ImageController {
 
     private List<MatchController> match = new ArrayList<>();
     private List<MatchController> ok = new ArrayList<>();
+    private Timer timer;
     private int totalElements = 8;
     private int score;
     private int round;
 
     public void setMatchGame(MatchGame matchGame) {
         this.matchGame = matchGame;
+        
     }
 
     public static List<Integer> rowsTable() {
@@ -96,6 +98,7 @@ public class ImageController {
     // METODE DI MANA GAMBAR SUDAH MEMBUAT MATCH
     public void setStartImageMatch() {
         round = 0;
+        // this.timer.start();
         if (ok.size() == 8) {
             MatchGame.Timer.hitungScore();
             MatchGame.Timer.getScore();
@@ -103,15 +106,15 @@ public class ImageController {
             System.out.println("Skor Anda: " + score);
             matchGame.setShowScore(score);
             matchGame.setHighScore(score);
+            matchGame.resetGame(); // reset
             MatchGame.Timer.reset(); 
             round++;
             System.out.println("Round: " + round);
             matchGame.setRound(round);
-            reset();
             
             // Menampilkan notifikasi "Win Player" bersamaan dengan skor
             JOptionPane.showMessageDialog(null, "Win Player\nSkor Anda: " + MatchGame.Timer.getScore());
-
+            
             for (int i = 0; i < ok.size(); i++) {
                 setImages(ok.get(i).getBtn(), ok.get(i).getValueMatch());
                 ok.get(i).getBtn().setEnabled(true);
