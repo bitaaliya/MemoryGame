@@ -40,7 +40,7 @@ public class Profile extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -48,56 +48,29 @@ public class Profile extends javax.swing.JFrame {
         ProfileName = new javax.swing.JLabel();
         ProfileScore = new javax.swing.JLabel();
         ProfileRound = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ProfileLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         ProfileLabel.setText("Profile");
+        jPanel1.add(ProfileLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
 
         ProfileName.setText("Nama: ");
+        jPanel1.add(ProfileName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 127, -1));
 
         ProfileScore.setText("Highscore: ");
+        jPanel1.add(ProfileScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 127, -1));
 
         ProfileRound.setText("Jumlah Tes: ");
+        jPanel1.add(ProfileRound, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 127, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(ProfileRound, javax.swing.GroupLayout.PREFERRED_SIZE, 127,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(ProfileScore, javax.swing.GroupLayout.PREFERRED_SIZE, 127,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(ProfileLabel)
-                                        .addComponent(ProfileName, javax.swing.GroupLayout.PREFERRED_SIZE, 127,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(38, Short.MAX_VALUE)));
-        jPanel1Layout.setVerticalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(ProfileLabel)
-                                .addGap(18, 18, 18)
-                                .addComponent(ProfileName)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ProfileScore)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ProfileRound)
-                                .addContainerGap(54, Short.MAX_VALUE)));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/memorygame/rsz_download_2.jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 190));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                Short.MAX_VALUE));
-        layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                Short.MAX_VALUE));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -113,7 +86,7 @@ public class Profile extends javax.swing.JFrame {
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             stmt = conn.createStatement();
 
-            String sql = "SELECT username, score, round FROM userid WHERE username = ?";
+            String sql = "SELECT username, score, round FROM player WHERE username = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, loggedInUsername);
 
@@ -144,19 +117,10 @@ public class Profile extends javax.swing.JFrame {
         }
     }
 
-    // public static void main(String args[]) {
-    // java.awt.EventQueue.invokeLater(new Runnable() {
-    // public void run() {
-    // new Profile().setVisible(true);
-    // }
-    // });
-    // }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ProfileLabel;
     private javax.swing.JLabel ProfileName;
     private javax.swing.JLabel ProfileRound;
     private javax.swing.JLabel ProfileScore;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    // End of variables declaration//GEN-END:variables
 }

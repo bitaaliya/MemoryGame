@@ -29,9 +29,7 @@ public class Register extends javax.swing.JFrame {
      */
     public Register() {
         initComponents();
-
         this.setLocationRelativeTo(this);
-
     }
 
     /**
@@ -41,7 +39,7 @@ public class Register extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         passLabel = new javax.swing.JLabel();
@@ -55,26 +53,32 @@ public class Register extends javax.swing.JFrame {
         plsEnterDtlLable = new javax.swing.JLabel();
         UserLabel = new javax.swing.JLabel();
         enterUser = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         passLabel.setText("Password");
+        getContentPane().add(passLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, -1, -1));
 
         enterPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enterPassActionPerformed(evt);
             }
         });
+        getContentPane().add(enterPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 216, -1));
 
         confrmPassLabel.setText("Confirm Password");
+        getContentPane().add(confrmPassLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
 
         confermPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confermPassActionPerformed(evt);
             }
         });
+        getContentPane().add(confermPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 216, -1));
 
-        RegisterBtn1.setBackground(new java.awt.Color(0, 102, 255));
+        RegisterBtn1.setBackground(new java.awt.Color(96, 211, 148));
         RegisterBtn1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         RegisterBtn1.setForeground(new java.awt.Color(255, 255, 255));
         RegisterBtn1.setText("Register");
@@ -83,18 +87,21 @@ public class Register extends javax.swing.JFrame {
                 RegisterBtn1ActionPerformed(evt);
             }
         });
+        getContentPane().add(RegisterBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 216, -1));
 
         registerLable.setText("already have an account?");
+        getContentPane().add(registerLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, -1, -1));
 
         loginLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        loginLabel.setForeground(new java.awt.Color(0, 102, 255));
+        loginLabel.setForeground(new java.awt.Color(96, 211, 148));
         loginLabel.setText("Register");
         loginLabel.setMaximumSize(new java.awt.Dimension(50, 36));
         loginLabel.setMinimumSize(new java.awt.Dimension(50, 36));
         loginLabel.setPreferredSize(new java.awt.Dimension(50, 36));
+        getContentPane().add(loginLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 77, 24));
 
         LoginBtn1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        LoginBtn1.setForeground(new java.awt.Color(0, 102, 255));
+        LoginBtn1.setForeground(new java.awt.Color(96, 211, 148));
         LoginBtn1.setText("login here");
         LoginBtn1.setBorder(null);
         LoginBtn1.addActionListener(new java.awt.event.ActionListener() {
@@ -102,76 +109,23 @@ public class Register extends javax.swing.JFrame {
                 LoginBtn1ActionPerformed(evt);
             }
         });
+        getContentPane().add(LoginBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, -1, -1));
 
-        plsEnterDtlLable.setText("Please. enter your detail");
+        plsEnterDtlLable.setText("Hello! Please enter your detail");
+        getContentPane().add(plsEnterDtlLable, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, -1, -1));
 
         UserLabel.setText("Username");
+        getContentPane().add(UserLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, -1, -1));
 
         enterUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enterUserActionPerformed(evt);
             }
         });
+        getContentPane().add(enterUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 216, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGap(70, 70, 70)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(confrmPassLabel)
-                                        .addComponent(confermPass, javax.swing.GroupLayout.PREFERRED_SIZE, 216,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(RegisterBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 216,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(passLabel)
-                                        .addComponent(enterPass, javax.swing.GroupLayout.PREFERRED_SIZE, 216,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(UserLabel)
-                                        .addComponent(plsEnterDtlLable)
-                                        .addComponent(enterUser, javax.swing.GroupLayout.PREFERRED_SIZE, 216,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGap(6, 6, 6)
-                                                .addComponent(registerLable)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(LoginBtn1))
-                                        .addComponent(loginLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 77,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(114, Short.MAX_VALUE)));
-        layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(loginLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(plsEnterDtlLable)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(UserLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(enterUser, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(passLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(enterPass, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(confrmPassLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(confermPass, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(RegisterBtn1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(registerLable)
-                                        .addComponent(LoginBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 16,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(37, 37, 37)));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/memorygame/Download premium vector of Vector paper frame on food pattern background by wifiseeker about pancake, food frame, cute frame design, frame cartoon, and frame 2744688.jpeg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -60, 400, 480));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -185,7 +139,7 @@ public class Register extends javax.swing.JFrame {
     }// GEN-LAST:event_confermPassActionPerformed
 
     private void LoginBtn1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_LoginBtn1ActionPerformed
-        new Login().setVisible(true);
+        new Login().setVisible(true); 
     }// GEN-LAST:event_LoginBtn1ActionPerformed
 
     private void enterUserActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_enterUserActionPerformed
@@ -194,7 +148,7 @@ public class Register extends javax.swing.JFrame {
 
     private void RegisterBtn1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_RegisterBtn1ActionPerformed
         try (Connection connection = DriverManager.getConnection(DB_URL, USER, PASS)) {
-            String sql = "INSERT INTO userid(username, pass, score, round) VALUES (?, ?, 0, 0)";
+            String sql = "INSERT INTO player(username, password, score, round) VALUES (?, ?, 0, 0)";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, enterUser.getText());
             statement.setString(2, enterPass.getText());
@@ -282,6 +236,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel confrmPassLabel;
     private javax.swing.JTextField enterPass;
     private javax.swing.JTextField enterUser;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel loginLabel;
     private javax.swing.JLabel passLabel;
     private javax.swing.JLabel plsEnterDtlLable;
