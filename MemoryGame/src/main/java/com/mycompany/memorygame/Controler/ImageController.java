@@ -36,6 +36,8 @@ public class ImageController implements Runnable {
             }
             SwingUtilities.invokeLater(() -> {
                 MatchGame.Timer.hitungScore();
+                score = MatchGame.Timer.getScore();
+                matchGame.setShowScore(score);
 
             });
         }
@@ -74,7 +76,6 @@ public class ImageController implements Runnable {
         all.addAll(firstSet);
         all.addAll(secondSet);
 
-        // Shuffle the combined list
         Collections.shuffle(all);
 
         return all;
@@ -107,6 +108,7 @@ public class ImageController implements Runnable {
         }
     }
 
+    //METODE KETIKA DUA NILAI SAMA
     public void paintMatch() {
         System.out.println(getMatch().size());
         if (getMatch().size() == 1) {
