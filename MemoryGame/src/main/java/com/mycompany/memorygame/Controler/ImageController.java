@@ -6,13 +6,11 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
 import com.mycompany.memorygame.MatchGame;
-import com.mycompany.memorygame.Controler.MatchController;
 
 public class ImageController implements Runnable {
 
@@ -20,8 +18,7 @@ public class ImageController implements Runnable {
 
     private List<MatchController> match = new ArrayList<>();
     protected List<MatchController> ok = new ArrayList<>();
-    private Timer timer;
-    private int totalElements = 8;
+    
     private int score;
     protected int round;
     private volatile boolean isRunning = true;
