@@ -133,7 +133,6 @@ public class ImageController implements Runnable {
             System.out.println("Round: " + round);
             matchGame.setRound(round);
             
-            // Menampilkan notifikasi "Win Player" bersamaan dengan skor
             JOptionPane.showMessageDialog(null, "Win Player\nSkor Anda: " + MatchGame.Timer.getScore());
             
             for (int i = 0; i < ok.size(); i++) {
