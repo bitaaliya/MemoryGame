@@ -12,7 +12,7 @@ import java.util.Random;
 
 import com.mycompany.memorygame.MatchGame;
 
-public class ImageController implements Runnable {
+public class ImageController  {
 
     private MatchGame matchGame;
 
@@ -24,24 +24,25 @@ public class ImageController implements Runnable {
     private volatile boolean isRunning = true;
 
 
-    @Override
-    public void run() {
-        while (isRunning) {
+    // @Override
+    // public void run() {
+    //     while (isRunning) {
 
 
-            try {
-                Thread.sleep(1000); 
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            SwingUtilities.invokeLater(() -> {
-                MatchGame.Timer.hitungScore();
-                score = MatchGame.Timer.getScore();
-                matchGame.setShowScore(score);
+    //         try {
+    //             Thread.sleep(1000); 
+    //         } catch (InterruptedException e) {
+    //             e.printStackTrace();
+    //         }
+    //         SwingUtilities.invokeLater(() -> {
+    //             MatchGame.Timer.hitungScore();
+    //             score = MatchGame.Timer.getScore();
+    //             matchGame.setShowScore(score);
 
-            });
-        }
-    }
+    //         });
+    //     }
+        
+    // }
 
     public void stopRunning() {
         isRunning = false;

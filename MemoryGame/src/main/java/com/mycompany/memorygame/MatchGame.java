@@ -59,8 +59,8 @@ public class MatchGame extends javax.swing.JFrame {
         shuffleValues();
         imageController.setStartImage();
 
-        Thread imageControllerThread = new Thread(imageController);
-        imageControllerThread.start();
+        // Thread imageControllerThread = new Thread(imageController);
+        // imageControllerThread.start();
 
     }
 
